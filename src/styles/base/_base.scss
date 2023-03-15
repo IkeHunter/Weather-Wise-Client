@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+  // color: $color-grey-dark;
+
+  scroll-behavior: smooth;
+
+  @include respond(tab-land) {  // width < 1200px
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {  // width < 900px
+      font-size: 50%;
+  }
+
+  @include respond(big-desktop) {  // width > 1800px
+      font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
