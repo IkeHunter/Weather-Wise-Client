@@ -5,9 +5,14 @@ $light-blue: #6AAED9;
 $yellow: #F2E205;
 $orange: #F2A057;
 $white: #FFFFFF;
-$grey: #262473;
+$light-grey: #D2D4DA;
+$grey: #9b9b9b;
 $dark-grey: #080808;
 $black: #000000;
+
+// Global Values
+$box-shadow: 0px 0px 14px 6px rgba(210, 212, 218, 0.35);
+$border-radius: 20px;
 
 // Grid
 $grid-width: 114rem;
@@ -16,6 +21,6 @@ $gutter-vertical-small: 6rem;
 $gutter-horizontal: 6rem;
 
 // Layout
-$header-height: 135px;
+$header-height: 115px;
 $widget-space: 20px;
 

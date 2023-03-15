@@ -15,11 +15,11 @@
 
     height: $header-height;
     width: 100%;
-    border-bottom: 1px solid $white;
+    border-bottom: 1px solid $light-grey;
 
     & span {
       font-size: 30px;
-      color: $white;
+      color: $light-grey;
     }
   }
 
@@ -38,7 +38,7 @@
     }
 
     & a {
-      color: $white;
+      color: $light-grey;
 
       & span {
         font-size: 30px;

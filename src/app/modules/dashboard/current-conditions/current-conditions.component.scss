@@ -1,0 +1,21 @@
+@import 'main';
+
+.widget {
+
+  &__table {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc($widget-space / 2);
+
+    table {
+      border-collapse: collapse;
+    }
+
+    tr:has(th) {
+      display: none;
+    }
+    tr {
+      border-top: 1px solid $grey;
+    }
+  }
+}

@@ -13,6 +13,7 @@ import { LastYearComponent } from './modules/dashboard/last-year/last-year.compo
 import { BeachLastComponent } from './modules/dashboard/beach-last/beach-last.component';
 import { BeachClosestComponent } from './modules/dashboard/beach-closest/beach-closest.component';
 import { ForcastComponent } from './modules/dashboard/forcast/forcast.component';
+import { CurrentConditionsComponent } from './modules/dashboard/current-conditions/current-conditions.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ForcastComponent } from './modules/dashboard/forcast/forcast.component'
     LastYearComponent,
     BeachLastComponent,
     BeachClosestComponent,
-    ForcastComponent
+    ForcastComponent,
+    CurrentConditionsComponent
   ],
   imports: [
     BrowserModule,

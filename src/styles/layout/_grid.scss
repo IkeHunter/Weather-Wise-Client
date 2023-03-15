@@ -1,5 +1,10 @@
 .container-fluid {
   width: 100%;
+  min-height: 100%;
+
+  div {
+    position:relative;
+  }
 
   [class^="col-"] {  // selects all the classes that start with col-  [^: starts with; *: contains; $: end with;]
     float: left;
@@ -40,8 +45,7 @@
   max-width: $grid-width;
   margin: 0 auto;
 
-  padding-left: $widget-space;
-  padding-right: $widget-space;
+  padding: $widget-space;
 }
 
 .row {
