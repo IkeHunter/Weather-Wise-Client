@@ -1,0 +1,53 @@
+@import 'main';
+
+#sidebar {
+
+  height: 100vh;
+  min-height: 800px;
+  background-color: $dark-blue;
+  // padding: 30px;
+  width: 100%;
+
+  & .logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: $header-height;
+    width: 100%;
+    border-bottom: 1px solid $white;
+
+    & span {
+      font-size: 30px;
+      color: $white;
+    }
+  }
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 80px;
+  }
+  & li {
+    list-style: none;
+
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+
+    & a {
+      color: $white;
+
+      & span {
+        font-size: 30px;
+      }
+
+
+    }
+  }
+
+
+}
+
