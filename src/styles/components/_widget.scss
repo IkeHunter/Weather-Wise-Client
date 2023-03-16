@@ -1,6 +1,6 @@
 
 @mixin widgetRows($count) {
-  grid-template-rows: repeat($count, 190px);
+  grid-template-rows: repeat($count, 200px);
 }
 .widget-container {
   display: grid;
@@ -21,6 +21,8 @@ Define widget size as col-row, with col being two standard columns
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
 
   &-3-1 {
     grid-column: span 3;
@@ -59,7 +61,60 @@ Define widget size as col-row, with col being two standard columns
   }
 
 
+  &__table {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
 
+    table {
+      border-collapse: collapse;
+    }
+
+    tr:has(th) {
+      display: none;
+    }
+    tr {
+      border-top: 1px solid $grey;
+    }
+    td {
+      padding: 3px 0;
+    }
+  }
+
+  &__cta {
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      border-top: 1px solid $light-grey;
+    }
+
+     a {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      color: $light-blue;
+
+      padding-top: $widget-space;
+     }
+
+     span {
+      font-size: 19px;
+      font-weight: bold;
+     }
+  }
 
 
 
