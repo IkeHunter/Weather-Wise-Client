@@ -1,6 +1,15 @@
-# Project3Frontend
+# Weather Wise Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+
+To install Angular: https://angular.io/guide/setup-local
+
+To run project locally:
+```sh
+npm install
+
+ng serve
+```
 
 ## Development server
 
