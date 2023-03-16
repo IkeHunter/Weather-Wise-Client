@@ -116,6 +116,11 @@ Define widget size as col-row, with col being two standard columns
      }
   }
 
+  &__control {
+    h4 {
+      display: inline-block;
+    }
+  }
 
 
 }
