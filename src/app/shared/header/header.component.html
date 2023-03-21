@@ -1,6 +1,6 @@
-<div class="header container-fluid">
+<div class="header container-fluid" [ngStyle]="{'backgroundImage': 'url(' + currentImg + ')'}">
   <div class="container">
     <h1>General Overview</h1>
-    <span>13:00 ET</span>
+    <span>{{ currentTime }}</span>
   </div>
 </div>

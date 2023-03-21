@@ -1,0 +1,13 @@
+@keyframes backgroundTransition {
+  to {
+    background-position: right center;
+  }
+  from {
+    background-position: left center;
+  }
+  // 100% {
+  //   background-position: right center;
+  // }
+}
+
+

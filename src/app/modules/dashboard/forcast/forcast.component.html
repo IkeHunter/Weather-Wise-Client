@@ -13,7 +13,12 @@
       <th>Percent</th>
       <th>Temperature</th>
     </tr>
-    <tr bar-width="50%">
+    <tr *ngFor="let forecast of forecastIntervals | keyvalue">
+      <td>{{ forecast.key }}</td>
+      <td><span [ngStyle]="{'width': forecast.value + '%'}">&nbsp;</span></td>
+      <td>{{ forecast.value }}˚</td>
+    </tr>
+    <!-- <tr bar-width="50%">
       <td>0:00</td>
       <td>&nbsp;</td>
       <td>72˚</td>
@@ -57,12 +62,7 @@
       <td>0:00</td>
       <td>&nbsp;</td>
       <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
+    </tr> -->
 
   </table>
 </div>

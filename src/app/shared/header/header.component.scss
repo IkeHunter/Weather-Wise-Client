@@ -1,15 +1,19 @@
 @import 'main';
 
 .header {
-  background-image: url('/assets/blue-sky.jpg');
+  // background-image: url('/assets/blue-sky.jpg');
   // background-image: url(https://staging-thewanderingrv-staging.kinsta.cloud/wp-content/uploads/2022/11/IMG_2003-scaled.jpg);
-  background-position: bottom center;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  // background-size: cover;
+  background-size: 150%;
 
   height: $header-height;
   position: relative;
   z-index: 0;
+
+  animation: backgroundTransition 150s linear infinite forwards;
+  animation-fill-mode: forwards;
 
   &::after {
     content: "";
@@ -21,7 +25,7 @@
     background: rgba(218, 218, 218, 0.65);
     background-blend-mode: multiply;
     mix-blend-mode: multiply;
-    backdrop-filter: blur(9.5px);
+    backdrop-filter: blur(3px);
     z-index: 1;
   }
 }

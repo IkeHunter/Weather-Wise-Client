@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./beach-closest.component.scss']
 })
 export class BeachClosestComponent {
-
+  beachClosest = 'City Name, Ecuador';
 }
