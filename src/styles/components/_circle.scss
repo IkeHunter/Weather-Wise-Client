@@ -1,0 +1,39 @@
+.circle {
+  &-container {
+    display: inline-block;
+
+    &--center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  background-color: $light-blue;
+  color: $white;
+
+  font-family: 'Urbane Rounded';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+
+  // padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  position: relative;
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &::after {
+    content: "M";
+
+    @include absCenter;
+  }
+
+}
+
+

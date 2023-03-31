@@ -2,7 +2,7 @@
 
 .widget {
 
-  &__table {
+  &--2col &__table {
     grid-template-columns: repeat(2, 1fr);
     gap: calc($widget-space / 2);
   }

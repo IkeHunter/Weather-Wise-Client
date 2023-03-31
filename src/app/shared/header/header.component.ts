@@ -30,10 +30,10 @@ export class HeaderComponent {
     if(currentHour > 5 && currentHour <= 10) {  // morning
       this.currentImg = this.morningImg;
       console.log("morning");
-    } else if(currentHour > 10 && currentHour <= 18) {  // afternoon
+    } else if(currentHour > 10 && currentHour <= 17) {  // afternoon
       this.currentImg = this.afternoonImg;
       console.log("afternoon");
-    } else if(currentHour > 18 && currentHour <= 20) {  // dusk
+    } else if(currentHour > 17 && currentHour <= 20) {  // dusk
       this.currentImg = this.duskImg;
       console.log("dusk");
     } else if (currentHour > 20 || currentHour <= 5) { // night

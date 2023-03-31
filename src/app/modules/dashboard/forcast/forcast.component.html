@@ -1,7 +1,26 @@
 <h3>Weather Forecast</h3>
+<div class="widget__summary">
 
+  <div class="widget__summary__block">
+    <span class="data-font">{{ averageTemp }}˚</span>
+    <span class="xsmall-label-text">Average Temp</span>
+  </div>
+  <div class="widget__summary__block">
+    <span class="data-font">{{ chanceOfRain }}%</span>
+    <span class="xsmall-label-text">Chance of Rain</span>
+  </div>
+  <div class="widget__summary__block">
+    <span class="data-font">{{ humidity }}%</span>
+    <span class="xsmall-label-text">Humidity</span>
+  </div>
+  <div class="widget__summary__block">
+    <span class="data-font">{{ chanceOfRain }}%</span>
+    <span class="xsmall-label-text">Humidity</span>
+  </div>
+</div>
 <div class="widget__chart">
   <div class="widget__control">
+
     <h4>Temperature Forecast</h4>
     <div class="circle-container">
       <span class="circle">&nbsp;</span><span class="circle">&nbsp;</span><span class="circle">&nbsp;</span>
@@ -18,51 +37,8 @@
       <td><span [ngStyle]="{'width': forecast.value + '%'}">&nbsp;</span></td>
       <td>{{ forecast.value }}˚</td>
     </tr>
-    <!-- <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr>
-    <tr bar-width="50%">
-      <td>0:00</td>
-      <td>&nbsp;</td>
-      <td>72˚</td>
-    </tr> -->
-
   </table>
+  <div class="circle-container circle-container--center">
+    <span class="circle">&nbsp;</span><span class="circle">&nbsp;</span><span class="circle">&nbsp;</span><span class="circle">&nbsp;</span>
+  </div>
 </div>

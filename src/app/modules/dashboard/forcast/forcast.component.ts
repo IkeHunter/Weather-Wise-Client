@@ -9,6 +9,9 @@ export class ForcastComponent {
   barWidth: number = 70;
 
   forecastIntervals = new Map<String, number>();
+  averageTemp: number = 65;
+  chanceOfRain: number = 15;
+  humidity: number = 35;
 
   constructor() {
     this.forecastIntervals.set('01:00', this.randomInt());
@@ -21,6 +24,8 @@ export class ForcastComponent {
     this.forecastIntervals.set('08:00', this.randomInt());
     this.forecastIntervals.set('09:00', this.randomInt());
     this.forecastIntervals.set('10:00', this.randomInt());
+    this.forecastIntervals.set('11:00', this.randomInt());
+    this.forecastIntervals.set('12:00', this.randomInt());
   }
 
   randomInt() {

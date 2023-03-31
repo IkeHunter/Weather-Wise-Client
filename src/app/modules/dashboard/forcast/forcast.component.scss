@@ -1,37 +1,37 @@
 @import 'main';
 
-.circle {
-  &-container {
-    display: inline-block;
+// .circle {
+//   &-container {
+//     display: inline-block;
 
-  }
+//   }
 
-  background-color: $light-blue;
-  color: $white;
+//   background-color: $light-blue;
+//   color: $white;
 
-  font-family: 'Urbane Rounded';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
+//   font-family: 'Urbane Rounded';
+//   font-style: normal;
+//   font-weight: 600;
+//   font-size: 14px;
 
-  // padding: 5px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50px;
-  position: relative;
-  display: inline-block;
+//   // padding: 5px;
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 50px;
+//   position: relative;
+//   display: inline-block;
 
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
+//   &:not(:last-child) {
+//     margin-right: 10px;
+//   }
 
-  &::after {
-    content: "M";
+//   &::after {
+//     content: "M";
 
-    @include absCenter;
-  }
+//     @include absCenter;
+//   }
 
-}
+// }
 
 
 .widget {
@@ -84,26 +84,6 @@
         height: 100%;
         border-radius: 10px;
       }
-      // &:is(:nth-child(2)) {
-      //   // visibility: hidden;
-      //   width: 80%;
-      //   position: relative;
-      //   border: 1px solid $light-grey;
-      //   border-radius: 10px;
-      //   overflow: hidden;
-
-      //   &::after {
-      //     content: "";
-      //     background-color: $medium-blue;
-      //     width: 75%;
-      //     display: block;
-      //     position: absolute;
-      //     top: 0;
-      //     left: 0;
-      //     height: 100%;
-      //     border-radius: 10px;
-      //   }
-      // }
     }
   }
 }

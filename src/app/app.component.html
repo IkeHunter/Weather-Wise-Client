@@ -1,12 +1,9 @@
-<div class="container-fluid">
-  <div class="col-1-of-12">
-    <app-sidebar></app-sidebar>
-  </div>
+<div class="container-fluid root">
+  <app-sidebar class="sidebar"></app-sidebar>
 
-  <div class="col-11-of-12">
-    <app-header></app-header>
+  <div class="main-content">
+    <app-header class="header"></app-header>
     <router-outlet></router-outlet>
   </div>
-
 </div>
 

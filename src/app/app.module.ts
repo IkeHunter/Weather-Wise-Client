@@ -14,6 +14,12 @@ import { BeachLastComponent } from './modules/dashboard/beach-last/beach-last.co
 import { BeachClosestComponent } from './modules/dashboard/beach-closest/beach-closest.component';
 import { ForcastComponent } from './modules/dashboard/forcast/forcast.component';
 import { CurrentConditionsComponent } from './modules/dashboard/current-conditions/current-conditions.component';
+import { LocationComponent } from './modules/dashboard/location/location.component';
+import { ColdestDayComponent } from './modules/dashboard/mini-widgets/coldest-day/coldest-day.component';
+import { RainiestDayComponent } from './modules/dashboard/mini-widgets/rainiest-day/rainiest-day.component';
+import { LatestSunriseComponent } from './modules/dashboard/mini-widgets/latest-sunrise/latest-sunrise.component';
+import { MuggiestDayComponent } from './modules/dashboard/mini-widgets/muggiest-day/muggiest-day.component';
+import { HottestDayComponent } from './modules/dashboard/mini-widgets/hottest-day/hottest-day.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,13 @@ import { CurrentConditionsComponent } from './modules/dashboard/current-conditio
     BeachLastComponent,
     BeachClosestComponent,
     ForcastComponent,
-    CurrentConditionsComponent
+    CurrentConditionsComponent,
+    LocationComponent,
+    ColdestDayComponent,
+    RainiestDayComponent,
+    LatestSunriseComponent,
+    MuggiestDayComponent,
+    HottestDayComponent
   ],
   imports: [
     BrowserModule,

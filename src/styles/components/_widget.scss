@@ -1,6 +1,6 @@
 
 @mixin widgetRows($count) {
-  grid-template-rows: repeat($count, 200px);
+  grid-template-rows: repeat($count, $row-height);
 }
 .widget-container {
   display: grid;
@@ -14,7 +14,6 @@ Widget Component
 
 Define widget size as col-row, with col being two standard columns
 */
-
   box-shadow: $box-shadow;
   border-radius: $border-radius;
   padding: $widget-space;
@@ -23,23 +22,35 @@ Define widget size as col-row, with col being two standard columns
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  min-height: $row-height;
 
+
+
+  &-9-1 {
+    grid-column: span 9;
+    grid-row: span .5;
+  }
+  &-6-2 {
+    grid-column: span 4;
+    grid-row: span 4;
+  }
   &-3-1 {
     grid-column: span 3;
-    grid-row: span 1;
+    grid-row: span 2;
 
   }
-  &-3-3 {
+  &-3-4 {
     grid-column: span 3;
-    grid-row: span 3;
+    grid-row: span 8;
   }
   &-2-2 {
     grid-column: span 2;
-    grid-row: span 2;
+    grid-row: span 5;
   }
   &-1-1 {
     grid-column: span 2;
-    grid-row: span 1;
+    grid-row: span 2;
+    min-height: $row-height * 2;
   }
 
 
@@ -78,6 +89,10 @@ Define widget size as col-row, with col being two standard columns
     td {
       padding: 3px 0;
     }
+  }
+  &--2col &__table {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: calc($widget-space / 2);
   }
 
   &__cta {

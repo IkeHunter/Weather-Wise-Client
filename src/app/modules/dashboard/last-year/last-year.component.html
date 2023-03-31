@@ -12,23 +12,36 @@
     <span class="data-font">{{ chanceOfRain }}%</span>
     <span class="xsmall-label-text">Chance of Rain</span>
   </div>
-</div>
-  <div class="widget__table">
-    <table>
-      <tr>
-        <th>Condition</th>
-        <th>Value</th>
-      </tr>
-      <tr *ngFor="let condition of conditions | keyvalue">
-        <td>{{condition.key}}</td>
-        <td>{{condition.value}}</td>
-      </tr>
-    </table>
+  <div class="widget__summary__block">
+    <span class="data-font">{{ humidity }}%</span>
+    <span class="xsmall-label-text">Humidity</span>
   </div>
-  <div class="widget__cta">
+</div>
+<div class="widget__table">
+  <table>
+    <tr>
+      <th>Condition</th>
+      <th>Value</th>
+    </tr>
+    <tr *ngFor="let condition of conditions1 | keyvalue">
+      <td>{{condition.key}}</td>
+      <td>{{condition.value}}</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th>Condition</th>
+      <th>Value</th>
+    </tr>
+    <tr *ngFor="let condition of conditions2 | keyvalue">
+      <td>{{condition.key}}</td>
+      <td>{{condition.value}}</td>
+    </tr>
+  </table>
+  <!-- <div class="widget__cta">
     <a routerLink="/search">
       Go To Search
       <span class="material-icons">arrow_forward</span>
     </a>
-  </div>
+  </div> -->
 

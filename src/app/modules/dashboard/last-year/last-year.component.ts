@@ -6,20 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./last-year.component.scss']
 })
 export class LastYearComponent {
-  conditions = new Map<String, String>();
+  conditions1 = new Map<String, String>();
+  conditions2 = new Map<String, String>();
 
-  averageTemp: number = 88;
-  chanceOfRain: number = 20;
+  averageTemp: number = 65;
+  chanceOfRain: number = 15;
+  humidity: number = 35;
 
   constructor() {
-    this.conditions.set('Condition1', '15%');
-    this.conditions.set('Condition2', '15%');
-    this.conditions.set('Condition3', '15%');
-    this.conditions.set('Condition4', '15%');
-    this.conditions.set('Condition5', '15%');
-    this.conditions.set('Condition6', '15%');
-    this.conditions.set('Condition7', '15%');
-    this.conditions.set('Condition8', '15%');
-
+    this.conditions1.set('Percipitation1', '15%');
+    this.conditions1.set('Percipitation2', '15%');
+    this.conditions1.set('Percipitation3', '15%');
+    this.conditions2.set('Percipitation4', '15%');
+    this.conditions2.set('Percipitation5', '15%');
+    this.conditions2.set('Percipitation6', '15%');
   }
 }
