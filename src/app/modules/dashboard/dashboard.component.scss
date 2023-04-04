@@ -1,8 +1,6 @@
 @import 'main';
 
 .widget-container {
-  @include widgetRows(3);
-  height: 100%;
-  margin-top: 30px;
+  @include widgetRows(6);
 }
 

@@ -20,6 +20,9 @@ import { RainiestDayComponent } from './modules/dashboard/mini-widgets/rainiest-
 import { LatestSunriseComponent } from './modules/dashboard/mini-widgets/latest-sunrise/latest-sunrise.component';
 import { MuggiestDayComponent } from './modules/dashboard/mini-widgets/muggiest-day/muggiest-day.component';
 import { HottestDayComponent } from './modules/dashboard/mini-widgets/hottest-day/hottest-day.component';
+import { SearchCriteriaComponent } from './modules/search/search-criteria/search-criteria.component';
+import { TopResultComponent } from './modules/search/top-result/top-result.component';
+import { SearchResultsComponent } from './modules/search/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { HottestDayComponent } from './modules/dashboard/mini-widgets/hottest-da
     RainiestDayComponent,
     LatestSunriseComponent,
     MuggiestDayComponent,
-    HottestDayComponent
+    HottestDayComponent,
+    SearchCriteriaComponent,
+    TopResultComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

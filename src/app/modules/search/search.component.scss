@@ -1,0 +1,11 @@
+@import 'main';
+
+.widget-container {
+  @include widgetRows(4);
+}
+.search-criteria {
+  min-height: calc($row-height * 6);
+}
+
+
+

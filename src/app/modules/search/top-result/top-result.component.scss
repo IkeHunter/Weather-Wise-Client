@@ -1,0 +1,27 @@
+@import 'main';
+
+.top-result {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    &__icon {
+      background-color: $light-grey;
+      // padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      & span {
+        color: $dark-blue;
+      }
+    }
+  }
+  &__date {
+    color: $medium-blue;
+    display: block;
+    margin-top: 10px;
+
+  }
+}

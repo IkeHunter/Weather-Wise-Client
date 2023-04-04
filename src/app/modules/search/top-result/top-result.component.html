@@ -1,0 +1,22 @@
+<div class="top-result__header">
+  <div>
+    <h3>Top Result</h3>
+    <span class="heading-3 top-result__date">4/25/22</span>
+  </div>
+  <span class="top-result__header__icon">
+    <span class="material-icons">cloud</span>
+  </span>
+</div>
+
+<div class="widget__table">
+  <table>
+    <tr>
+      <th>Condition</th>
+      <th>Value</th>
+    </tr>
+    <tr *ngFor="let condition of conditions | keyvalue">
+      <td>{{ condition.key }}</td>
+      <td>{{ condition.value }}</td>
+    </tr>
+  </table>
+</div>
