@@ -23,6 +23,7 @@ import { HottestDayComponent } from './modules/dashboard/mini-widgets/hottest-da
 import { SearchCriteriaComponent } from './modules/search/search-criteria/search-criteria.component';
 import { TopResultComponent } from './modules/search/top-result/top-result.component';
 import { SearchResultsComponent } from './modules/search/search-results/search-results.component';
+import { ResultItemComponent } from './modules/search/search-results/result-item/result-item.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SearchResultsComponent } from './modules/search/search-results/search-r
     HottestDayComponent,
     SearchCriteriaComponent,
     TopResultComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    ResultItemComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,8 @@
 .search-criteria {
   min-height: calc($row-height * 6);
 }
-
+.search-results {
+  grid-column: span 6;
+}
 
 

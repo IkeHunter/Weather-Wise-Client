@@ -1,0 +1,17 @@
+@import 'main';
+
+.search-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  position: relative;
+  border-top: 1px solid $light-grey;
+
+  &__date {
+    display:flex;
+    flex-direction: column;
+  }
+}
+
+
