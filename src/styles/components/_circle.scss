@@ -1,6 +1,8 @@
 .circle {
   &-container {
-    display: inline-block;
+    // display: inline-block;
+    display: flex;
+    align-items: center;
 
     &--center {
       display: flex;
@@ -9,17 +11,24 @@
     }
   }
 
-  background-color: $light-blue;
+  background-color: $medium-blue;
   color: $white;
 
   font-family: 'Urbane Rounded';
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
+
+  cursor: pointer;
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.1);
+    color: $white;
+  }
 
   // padding: 5px;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 50px;
   position: relative;
   display: inline-block;
@@ -28,10 +37,17 @@
     margin-right: 10px;
   }
 
-  &::after {
-    content: "M";
-
+  &::after, & a, & span {
     @include absCenter;
+    width: 100%;
+    height: 100%;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  & span { // icons only
+    font-size: 18px;
   }
 
 }

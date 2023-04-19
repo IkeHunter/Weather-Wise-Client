@@ -1,0 +1,129 @@
+{
+  "summary":{
+      "location": 32608,
+      "user": 1,
+      "current_conditions":  {
+          "average_temp": 0,
+          "feels_like": 0,
+          "pressure": 0,
+          "humidity": 0,
+          "wind_speed": 0,
+          "pop": 0,
+          "rain_level": 0
+      },
+      "last_year":  {
+          "average_temp": 0,
+          "feels_like": 0,
+          "pressure": 0,
+          "humidity": 0,
+          "wind_speed": 0,
+          "pop": 0,
+          "rain_level": 0
+      },
+      "forecast": {
+        "temp": {
+          "one_hour": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ],
+          "one_day": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ]
+        },
+        "chance_of_rain": {
+          "one_hour": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ],
+          "one_day": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ]
+        },
+
+        "humidity": {
+          "one_hour": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ],
+          "six_hour": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ],
+          "one_day": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ]
+
+        },
+        "wind": {
+          "one_hour": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ],
+          "six_hour": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ],
+          "one_day": [
+            {
+              "value": 0,
+              "time": "2022-08-30 16:00:00"
+            }
+          ]
+
+        }
+      },
+      "radar": {},
+      "widgets": [
+        {
+          "title": "Hottest Day",
+          "day": "2022-08-30 16:00:00",
+          "value": 0,
+          "conditions": {
+              "average_temp": 0,
+              "feels_like": 0,
+              "pressure": 0,
+              "humidity": 0,
+              "wind_speed": 0,
+              "pop": 0,
+              "rain_level": 0
+          }
+        },
+        {
+          "title": "Coldest Day",
+          "day": "2022-08-30 16:00:00",
+          "value": 0,
+          "conditions": {
+              "average_temp": 0,
+              "feels_like": 0,
+              "pressure": 0,
+              "humidity": 0,
+              "wind_speed": 0,
+              "pop": 0,
+              "rain_level": 0
+          }
+        }
+      ]
+  }
+}
+

@@ -1,40 +1,12 @@
 @import 'main';
 
-// .circle {
-//   &-container {
-//     display: inline-block;
-
-//   }
-
-//   background-color: $light-blue;
-//   color: $white;
-
-//   font-family: 'Urbane Rounded';
-//   font-style: normal;
-//   font-weight: 600;
-//   font-size: 14px;
-
-//   // padding: 5px;
-//   width: 30px;
-//   height: 30px;
-//   border-radius: 50px;
-//   position: relative;
-//   display: inline-block;
-
-//   &:not(:last-child) {
-//     margin-right: 10px;
-//   }
-
-//   &::after {
-//     content: "M";
-
-//     @include absCenter;
-//   }
-
-// }
-
-
+.lottie {
+  height: 125px;
+}
 .widget {
+  &__summary {
+    justify-content: space-around;
+  }
   &__control {
     display: flex;
     justify-content: space-between;
@@ -63,12 +35,14 @@
       }
       &:is(:nth-child(3)) {
         text-align: right;
-        width: 10%;
+        min-width: 15%;
+        padding: 0 8px;
       }
 
       &:is(:nth-child(2)) {
           // visibility: hidden;
-        width: 75%;
+        // width: 75%;
+        width: 100%;
         position: relative;
         border: 1px solid $light-grey;
         border-radius: 10px;

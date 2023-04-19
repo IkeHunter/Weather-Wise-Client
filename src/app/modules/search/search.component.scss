@@ -1,7 +1,7 @@
 @import 'main';
 
 .widget-container {
-  @include widgetRows(4);
+  @include widgetRows(5);
 }
 .search-criteria {
   min-height: calc($row-height * 6);

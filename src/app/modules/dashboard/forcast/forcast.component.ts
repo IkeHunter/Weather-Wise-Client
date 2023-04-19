@@ -1,34 +1,87 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit } from '@angular/core';
+import { LottieModule } from 'src/app/lottie/lottie.module';
+import { forecastData } from './forecast.data';
 
 @Component({
   selector: 'app-forcast',
   templateUrl: './forcast.component.html',
-  styleUrls: ['./forcast.component.scss']
+  styleUrls: ['./forcast.component.scss'],
+  providers: [LottieModule]
 })
-export class ForcastComponent {
+export class ForcastComponent implements OnInit{
   barWidth: number = 70;
 
-  forecastIntervals = new Map<String, number>();
-  averageTemp: number = 65;
-  chanceOfRain: number = 15;
-  humidity: number = 35;
+  sunAnimation: any;
+  compassAnimation: any;
+
+  sunPosition: number = 50;
+  compassPosition: number = 75;
+
+  currentType = forecastData.temperature;
+  conditionType = "temp";
+
+  forecastIntervalData = new Map(Object.entries(this.currentType.hour));
+  timeRange = "hour";
+
 
   constructor() {
-    this.forecastIntervals.set('01:00', this.randomInt());
-    this.forecastIntervals.set('02:00', this.randomInt());
-    this.forecastIntervals.set('03:00', this.randomInt());
-    this.forecastIntervals.set('04:00', this.randomInt());
-    this.forecastIntervals.set('05:00', this.randomInt());
-    this.forecastIntervals.set('06:00', this.randomInt());
-    this.forecastIntervals.set('07:00', this.randomInt());
-    this.forecastIntervals.set('08:00', this.randomInt());
-    this.forecastIntervals.set('09:00', this.randomInt());
-    this.forecastIntervals.set('10:00', this.randomInt());
-    this.forecastIntervals.set('11:00', this.randomInt());
-    this.forecastIntervals.set('12:00', this.randomInt());
+
   }
 
-  randomInt() {
-    return Math.floor(Math.random() * 100);
+  ngOnInit() {
+    this.sunAnimation = document.getElementById("sunanimation");
+    this.compassAnimation = document.getElementById("compassanimation");
+
+    this.sunAnimation.addEventListener("ready", () => {
+      this.sunAnimation.seek(`${this.sunPosition}%`);
+      this.sunAnimation.pause()
+    });
+    this.compassAnimation.addEventListener("ready", () => {
+      this.compassAnimation.seek(`${this.compassPosition}%`);
+      this.compassAnimation.pause();
+    })
+
+  }
+
+  resetRange() {
+    if(this.conditionType === "temp") {
+      this.currentType = forecastData.temperature;
+    } else if(this.conditionType === "pop") {
+      this.currentType = forecastData.precipitation;
+    } else if(this.conditionType === "humidity") {
+      this.currentType = forecastData.humidity;
+    } else if(this.conditionType === "wind") {
+      this.currentType = forecastData.wind;
+    }
+    if(this.timeRange === "hour") {
+      this.forecastIntervalData = new Map(Object.entries(this.currentType.hour));
+    } else {
+      this.forecastIntervalData = new Map(Object.entries(this.currentType.day));
+    }
+  }
+
+  changeRange(type: string) {
+    if(type === "hour") {
+      this.timeRange = "hour";
+    } else if(type === "day") {
+      this.timeRange = "day";
+    }
+    this.resetRange();
+  }
+  changeType(type: string) {
+    if(type === "temp") {
+      this.conditionType = "temp";
+    } else if(type === "pop") {
+      this.conditionType = "pop";
+    } else if(type === "humidity") {
+      this.conditionType = "humidity";
+    } else if(type === "wind") {
+      this.conditionType = "wind";
+    } else {
+      this.conditionType = "temp";
+    }
+    this.resetRange();
   }
 }
+
+

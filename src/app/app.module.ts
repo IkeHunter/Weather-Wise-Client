@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,37 +25,46 @@ import { SearchCriteriaComponent } from './modules/search/search-criteria/search
 import { TopResultComponent } from './modules/search/top-result/top-result.component';
 import { SearchResultsComponent } from './modules/search/search-results/search-results.component';
 import { ResultItemComponent } from './modules/search/search-results/result-item/result-item.component';
+import { LottieModule } from "./lottie/lottie.module";
+import { HourPipe } from './pipes/hour.pipe';
+import { DayPipe } from './pipes/day.pipe';
+import { ConditionSymbolPipe } from './pipes/condition-symbol.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    SearchComponent,
-    HeaderComponent,
-    SidebarComponent,
-    RadarComponent,
-    AverageConditionsComponent,
-    LastYearComponent,
-    BeachLastComponent,
-    BeachClosestComponent,
-    ForcastComponent,
-    CurrentConditionsComponent,
-    LocationComponent,
-    ColdestDayComponent,
-    RainiestDayComponent,
-    LatestSunriseComponent,
-    MuggiestDayComponent,
-    HottestDayComponent,
-    SearchCriteriaComponent,
-    TopResultComponent,
-    SearchResultsComponent,
-    ResultItemComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        SearchComponent,
+        HeaderComponent,
+        SidebarComponent,
+        RadarComponent,
+        AverageConditionsComponent,
+        LastYearComponent,
+        BeachLastComponent,
+        BeachClosestComponent,
+        ForcastComponent,
+        CurrentConditionsComponent,
+        LocationComponent,
+        ColdestDayComponent,
+        RainiestDayComponent,
+        LatestSunriseComponent,
+        MuggiestDayComponent,
+        HottestDayComponent,
+        SearchCriteriaComponent,
+        TopResultComponent,
+        SearchResultsComponent,
+        ResultItemComponent,
+        HourPipe,
+        DayPipe,
+        ConditionSymbolPipe
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        LottieModule
+    ]
 })
 export class AppModule { }

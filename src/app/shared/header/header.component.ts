@@ -18,7 +18,7 @@ export class HeaderComponent {
   morningImg: string = "/assets/morning-sky.jpg";
   afternoonImg: string = "/assets/blue-sky.jpg";
   duskImg: string = "/assets/dusk-sky.jpg";
-  nightImg: string = "/assets/night-sky.jpg";
+  nightImg: string = "/assets/night-sky-3.jpg";
 
   secondsCounter = interval(1000);
   subscription = this.secondsCounter.subscribe((n: any) => {
@@ -29,10 +29,12 @@ export class HeaderComponent {
     var currentHour = new Date().getHours();
     if(currentHour > 5 && currentHour <= 10) {  // morning
       this.currentImg = this.morningImg;
+      // this.currentImg = this.nightImg;
       console.log("morning");
     } else if(currentHour > 10 && currentHour <= 17) {  // afternoon
       this.currentImg = this.afternoonImg;
       console.log("afternoon");
+
     } else if(currentHour > 17 && currentHour <= 20) {  // dusk
       this.currentImg = this.duskImg;
       console.log("dusk");

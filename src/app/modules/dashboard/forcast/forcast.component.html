@@ -1,29 +1,21 @@
 <h3>Weather Forecast</h3>
 <div class="widget__summary">
+  <div class="widget__summary__block">
+    <app-lottie-sun class="lottie"></app-lottie-sun>
+  </div>
+  <div class="widget__summary__block">
+    <app-lottie-compass class="lottie"></app-lottie-compass>
+  </div>
 
-  <div class="widget__summary__block">
-    <span class="data-font">{{ averageTemp }}˚</span>
-    <span class="xsmall-label-text">Average Temp</span>
-  </div>
-  <div class="widget__summary__block">
-    <span class="data-font">{{ chanceOfRain }}%</span>
-    <span class="xsmall-label-text">Chance of Rain</span>
-  </div>
-  <div class="widget__summary__block">
-    <span class="data-font">{{ humidity }}%</span>
-    <span class="xsmall-label-text">Humidity</span>
-  </div>
-  <div class="widget__summary__block">
-    <span class="data-font">{{ chanceOfRain }}%</span>
-    <span class="xsmall-label-text">Humidity</span>
-  </div>
+
 </div>
 <div class="widget__chart">
   <div class="widget__control">
 
     <h4>Temperature Forecast</h4>
     <div class="circle-container">
-      <span class="circle">&nbsp;</span><span class="circle">&nbsp;</span><span class="circle">&nbsp;</span>
+      <span class="circle"><a (click)="changeRange('hour')">H</a></span>
+      <span class="circle"><a (click)="changeRange('day')">D</a></span>
     </div>
   </div>
   <table cellspacing="0">
@@ -32,13 +24,45 @@
       <th>Percent</th>
       <th>Temperature</th>
     </tr>
-    <tr *ngFor="let forecast of forecastIntervals | keyvalue">
-      <td>{{ forecast.key }}</td>
+
+    <tr *ngFor="let forecast of forecastIntervalData | keyvalue">
+      <td *ngIf="timeRange == 'hour'">{{ forecast.key | toHour }}</td>
+      <td *ngIf="timeRange == 'day'">{{ forecast.key | toDay }}</td>
       <td><span [ngStyle]="{'width': forecast.value + '%'}">&nbsp;</span></td>
-      <td>{{ forecast.value }}˚</td>
+      <td>{{ forecast.value }}{{ conditionType | conditionSymbol}}</td>
     </tr>
+    <!-- <tr *ngFor="let forecast of forecastIntervals | keyvalue">
+      <td>{{ forecast.value[0] }}</td>
+      <td><span [ngStyle]="{'width': forecast.value + '%'}">&nbsp;</span></td>
+      <td>{{ forecast.value[1] }}˚</td>
+    </tr> -->
   </table>
   <div class="circle-container circle-container--center">
-    <span class="circle">&nbsp;</span><span class="circle">&nbsp;</span><span class="circle">&nbsp;</span><span class="circle">&nbsp;</span>
+    <span class="circle" >
+      <a (click)="changeType('temp')">
+        <span class="material-symbols-outlined">
+          thermometer
+        </span>
+      </a>
+    </span>
+    <span class="circle">
+      <a (click)="changeType('pop')">
+        <span class="material-symbols-outlined" >
+          water_drop
+        </span>
+      </a>
+
+    </span>
+    <span class="circle" (click)="changeType('humidity')">
+      <span class="material-symbols-outlined">
+        opacity
+        </span>
+    </span>
+    <span class="circle" (click)="changeType('wind')">
+      <span class="material-symbols-outlined">
+        air
+        </span>
+    </span>
   </div>
 </div>
+
