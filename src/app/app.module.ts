@@ -29,6 +29,8 @@ import { LottieModule } from "./lottie/lottie.module";
 import { HourPipe } from './pipes/hour.pipe';
 import { DayPipe } from './pipes/day.pipe';
 import { ConditionSymbolPipe } from './pipes/condition-symbol.pipe';
+import { ConditionValuePipe } from './pipes/condition-value.pipe';
+import { ConditionMapPipe } from './pipes/condition-map.pipe';
 
 @NgModule({
     declarations: [
@@ -56,7 +58,9 @@ import { ConditionSymbolPipe } from './pipes/condition-symbol.pipe';
         ResultItemComponent,
         HourPipe,
         DayPipe,
-        ConditionSymbolPipe
+        ConditionSymbolPipe,
+        ConditionValuePipe,
+        ConditionMapPipe
     ],
     providers: [],
     bootstrap: [AppComponent],

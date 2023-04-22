@@ -8,6 +8,7 @@ import { forecastData } from './forecast.data';
   styleUrls: ['./forcast.component.scss'],
   providers: [LottieModule]
 })
+
 export class ForcastComponent implements OnInit{
   barWidth: number = 70;
 

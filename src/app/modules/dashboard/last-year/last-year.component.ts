@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Summary } from 'src/app/models/summary.model';
+import { ConditionMapPipe } from 'src/app/pipes/condition-map.pipe';
+import { ApiSummary } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-last-year',
@@ -6,19 +9,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./last-year.component.scss']
 })
 export class LastYearComponent {
-  conditions1 = new Map<String, String>();
-  conditions2 = new Map<String, String>();
+  summary: Summary;
+  getCondition = new ConditionMapPipe().transform;
 
-  averageTemp: number = 65;
-  chanceOfRain: number = 15;
-  humidity: number = 35;
+  conditions = new Map<String, String>();
 
-  constructor() {
-    this.conditions1.set('Percipitation1', '15%');
-    this.conditions1.set('Percipitation2', '15%');
-    this.conditions1.set('Percipitation3', '15%');
-    this.conditions2.set('Percipitation4', '15%');
-    this.conditions2.set('Percipitation5', '15%');
-    this.conditions2.set('Percipitation6', '15%');
+  averageTemp: number = 0;
+  chanceOfRain: number = 0;
+  humidity: number = 0;
+
+  constructor(private apiService: ApiSummary) {}
+
+  ngOnInit() {
+    this.apiService.getSummary().subscribe((data: Summary[]) => {
+      this.summary = data[0];
+
+      this.averageTemp = this.summary.last_year.average_temp;
+      this.chanceOfRain = this.summary.last_year.pop;
+      this.humidity = this.summary.last_year.humidity;
+
+      this.conditions = this.getCondition(this.summary.last_year);
+    })
   }
 }

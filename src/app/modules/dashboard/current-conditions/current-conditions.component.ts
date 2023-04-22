@@ -1,24 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Summary } from 'src/app/models/summary.model';
+import { ConditionMapPipe } from 'src/app/pipes/condition-map.pipe';
+import { ConditionValuePipe } from 'src/app/pipes/condition-value.pipe';
+import { ApiSummary } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-current-conditions',
   templateUrl: './current-conditions.component.html',
   styleUrls: ['./current-conditions.component.scss']
 })
-export class CurrentConditionsComponent {
-  conditions1 = new Map<String, String>();
+export class CurrentConditionsComponent implements OnInit {
+  summary: Summary;
+  condition = new ConditionValuePipe().transform;
+  getCondition = new ConditionMapPipe().transform;
+
+  conditions = new Map<String, String>();
   conditions2 = new Map<String, String>();
 
-  averageTemp: number = 65;
-  chanceOfRain: number = 15;
-  humidity: number = 35;
+  averageTemp: number = 0;
+  chanceOfRain: number = 0;
+  humidity: number = 0;
 
-  constructor() {
-    this.conditions1.set('Percipitation1', '15%');
-    this.conditions1.set('Percipitation2', '15%');
-    this.conditions1.set('Percipitation3', '15%');
-    this.conditions2.set('Percipitation4', '15%');
-    this.conditions2.set('Percipitation5', '15%');
-    this.conditions2.set('Percipitation6', '15%');
+  constructor(private apiService: ApiSummary) { }
+
+  ngOnInit() {
+    this.apiService.getSummary().subscribe((data: Summary[]) => {
+      this.summary = data[0];
+
+      this.averageTemp = this.summary.current_conditions.average_temp;
+      this.chanceOfRain = this.summary.current_conditions.pop;
+      this.humidity = this.summary.current_conditions.humidity;
+
+      this.conditions = this.getCondition(this.summary.current_conditions);
+    })
   }
+
 }

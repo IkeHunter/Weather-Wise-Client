@@ -20,20 +20,24 @@
       <th>Condition</th>
       <th>Value</th>
     </tr>
-    <tr *ngFor="let condition of conditions1 | keyvalue">
-      <td>{{condition.key}}</td>
-      <td>{{condition.value}}</td>
-    </tr>
+    <ng-template ngFor let-condition [ngForOf]="conditions | keyvalue" let-i="index">
+      <tr *ngIf="i<3">
+        <td>{{condition.key}}</td>
+        <td>{{condition.value}}</td>
+      </tr>
+    </ng-template>
   </table>
   <table>
     <tr>
       <th>Condition</th>
       <th>Value</th>
     </tr>
-    <tr *ngFor="let condition of conditions2 | keyvalue">
-      <td>{{condition.key}}</td>
-      <td>{{condition.value}}</td>
-    </tr>
+    <ng-template ngFor let-condition [ngForOf]="conditions | keyvalue" let-i="index">
+      <tr *ngIf="i>=3">
+        <td>{{condition.key}}</td>
+        <td>{{condition.value}}</td>
+      </tr>
+    </ng-template>
   </table>
 </div>
 

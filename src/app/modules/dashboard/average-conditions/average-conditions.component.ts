@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Summary } from 'src/app/models/summary.model';
+import { ApiSummary } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-average-conditions',
@@ -12,7 +15,7 @@ export class AverageConditionsComponent {
   chanceOfRain: number = 18;
 
   constructor() {
-    this.conditions.set('Condition1', '15%');
+    this.conditions.set('Average Temperature', '15%');
     this.conditions.set('Condition2', '15%');
     this.conditions.set('Condition3', '15%');
     this.conditions.set('Condition4', '15%');
