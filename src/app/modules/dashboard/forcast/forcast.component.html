@@ -14,42 +14,7 @@
     <span class="small-label-text lottie-data">Wind Speed: {{ forecast.wind_speed }} mph</span>
   </div>
 </div>
-<!-- <table class="animation-summary">
-  <tr>
-    <td>
-      <ng-container>
-      <span class="xsmall-label-text" *ngIf="sunrise">Sunrise: {{ forecast.sunrise | toTime }}</span>
-      <span class="xsmall-label-text" *ngIf="!sunrise">Sunset: {{ forecast.sunset | toTime }}</span>
-    </ng-container>
-  </td>
-    <td><span class="xsmall-label-text">Wind Speed: {{ forecast.wind_speed }} mph</span></td>
-  </tr>
-</table> -->
-<table>
-  <!-- <tr>
-    <td class="xsmall-label-text">
-      <table>
-        <tr>
-          <td class="xsmall-label-text">{{ forecast.sunrise | toTime }}</td>
-          <td class="xsmall-label-text">{{ forecast.sunset | toTime }}</td>
-        </tr>
-        <tr>
-          <td class="xsmall-label-text">Sunrise</td>
-          <td class="xsmall-label-text">Sunset</td>
-        </tr>
-      </table>
-    </td>
-    <td class="xsmall-label-text">Wind Speed: {{ forecast.wind_speed }}mph</td>
-  </tr> -->
-  <!-- <tr>
-    <td class="small-text">{{ forecast.sunrise | toTime }}</td>
-    <td>{{ forecast.sunset | toTime }}</td>
-  </tr>
-  <tr>
-    <td>Sunrise</td>
-    <td>Sunset</td>
-  </tr> -->
-</table>
+
 <div class="widget__chart">
   <div class="widget__control">
     <h4>{{conditionType | conditionRange: timeRange}}</h4>
@@ -73,21 +38,6 @@
         <td>{{ forecast.value }}{{ conditionType | conditionSymbol}}</td>
       </tr>
     </ng-container>
-
-
-    <!-- <tr *ngFor="let forecast of forecastIntervalData | keyvalue">
-      <td *ngIf="timeRange == 'hour'">{{ forecast.key | toHour }}</td>
-      <td *ngIf="timeRange == 'day'">{{ forecast.key | toDay }}</td>
-      <td><span [ngStyle]="{'width': convertWidth(forecast.value) + '%'}">&nbsp;</span></td>
-      <td>{{ forecast.value }}{{ conditionType | conditionSymbol}}</td>
-    </tr> -->
-
-
-    <!-- <tr *ngFor="let forecast of forecastIntervals | keyvalue">
-      <td>{{ forecast.value[0] }}</td>
-      <td><span [ngStyle]="{'width': forecast.value + '%'}">&nbsp;</span></td>
-      <td>{{ forecast.value[1] }}˚</td>
-    </tr> -->
   </table>
   <div class="circle-container circle-container--center">
     <span class="circle" >

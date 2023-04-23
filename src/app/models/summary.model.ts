@@ -34,6 +34,7 @@ export interface Condition {
   rain_level: number;
   weather_name: string;
   icon: string;
+  date: number;
 }
 export class Forecast {
   date: number;

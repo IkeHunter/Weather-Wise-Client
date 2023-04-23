@@ -26,13 +26,15 @@ import { TopResultComponent } from './modules/search/top-result/top-result.compo
 import { SearchResultsComponent } from './modules/search/search-results/search-results.component';
 import { ResultItemComponent } from './modules/search/search-results/result-item/result-item.component';
 import { LottieModule } from "./lottie/lottie.module";
-import { HourPipe } from './pipes/hour.pipe';
-import { DayPipe } from './pipes/day.pipe';
-import { ConditionSymbolPipe } from './pipes/condition-symbol.pipe';
-import { ConditionValuePipe } from './pipes/condition-value.pipe';
-import { ConditionMapPipe } from './pipes/condition-map.pipe';
-import { ConditionRangePipe } from './pipes/condition-range.pipe';
+import { HourPipe } from './pipes/time.pipe';
+import { DayPipe } from './pipes/time.pipe';
+import { DayMonthYear } from './pipes/time.pipe';
+import { ConditionSymbolPipe } from './pipes/conditions.pipe';
+import { ConditionValuePipe } from './pipes/conditions.pipe';
+import { ConditionMapPipe } from './pipes/conditions.pipe';
+import { ConditionRangePipe } from './pipes/conditions.pipe';
 import { TimePipe } from './pipes/time.pipe';
+import { ConditionsPipe } from './pipes/conditions.pipe';
 
 @NgModule({
     declarations: [
@@ -60,11 +62,13 @@ import { TimePipe } from './pipes/time.pipe';
         ResultItemComponent,
         HourPipe,
         DayPipe,
+        DayMonthYear,
         ConditionSymbolPipe,
         ConditionValuePipe,
         ConditionMapPipe,
         ConditionRangePipe,
-        TimePipe
+        TimePipe,
+        ConditionsPipe
     ],
     providers: [],
     bootstrap: [AppComponent],

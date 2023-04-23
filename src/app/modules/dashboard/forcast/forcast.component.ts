@@ -29,7 +29,6 @@ export class ForcastComponent implements OnInit{
   currentType: any = forecastSeed.temperature;
   conditionType = "temp";
 
-  // forecastIntervalData = new Map(Object.entries(this.currentType.hour));
   forecastIntervalData = new Map<string, number>(Object.entries(this.currentType.hour));
   timeRange = "hour";
 
@@ -55,23 +54,20 @@ export class ForcastComponent implements OnInit{
       this.setSunPosition();
       this.setCompassPosition();
 
-      // this.sunAnimation.seek(`${this.sunPosition}%`);
-      // this.sunAnimation.pause()
-
       console.log(this.forecast)
     })
 
     this.sunAnimation = document.getElementById("sunanimation");
     this.compassAnimation = document.getElementById("compassanimation");
 
-    this.sunAnimation.addEventListener("ready", () => {
-      // this.sunAnimation.seek(`${this.sunPosition}%`);
-      // this.sunAnimation.pause()
-    });
-    this.compassAnimation.addEventListener("ready", () => {
-      // this.compassAnimation.seek(`${this.compassPosition}%`);
-      // this.compassAnimation.pause();
-    })
+    // this.sunAnimation.addEventListener("ready", () => {
+    //   // this.sunAnimation.seek(`${this.sunPosition}%`);
+    //   // this.sunAnimation.pause()
+    // });
+    // this.compassAnimation.addEventListener("ready", () => {
+    //   // this.compassAnimation.seek(`${this.compassPosition}%`);
+    //   // this.compassAnimation.pause();
+    // })
 
   }
 
@@ -197,28 +193,16 @@ export class ForcastComponent implements OnInit{
 
       this.showSunRise = false;
     } else if(currentTime > this.sunset) {
-      // let timeDiff = 24 - sunset;
-      // let timeDiffCurrent = currentTime - sunset;
-      // let sunPosition = 100 - (timeDiffCurrent / timeDiff) * 20;
-      // this.sunPosition = sunPosition;
-      // console.log("sun position: " + sunPosition)
       this.sunPosition = 100;
       this.showSunRise = true;
 
     } else if(currentTime < this.sunrise) {
-      // let timeDiff = sunrise;
-      // let timeDiffCurrent = sunrise - currentTime;
-      // let sunPosition = (timeDiffCurrent / timeDiff) * 20;
-      // this.sunPosition = sunPosition;
-      // console.log("sun position: " + sunPosition)
       this.sunPosition = 0;
       this.showSunRise = true;
     } else {
       this.sunPosition = 50;
     }
 
-    // let sunPosition= 25;
-    // this.sunPosition = sunPosition;
     console.log("sun position: " + this.sunPosition)
     this.sunAnimation.seek(`${Math.ceil(this.sunPosition)}%`);
     this.sunAnimation.pause()
@@ -229,7 +213,9 @@ export class ForcastComponent implements OnInit{
     let compassPosition = (windDirection / 360) * 100;
 
     this.compassPosition = compassPosition;
-    this.compassAnimation.seek(`${Math.ceil(this.compassPosition)}%`);
+    console.log("compass position: " + compassPosition)
+
+    this.compassAnimation.seek(`${100-Math.ceil(this.compassPosition)}%`);
     this.compassAnimation.pause()
   }
 

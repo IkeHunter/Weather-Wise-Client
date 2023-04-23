@@ -9,8 +9,6 @@
   & .lottie-data {
     position: absolute;
     bottom: -10px;
-    // left: 50%;
-    // transform: translateX(-50%);
     width: 100%;
   }
 }
@@ -19,16 +17,13 @@
     text-align: center;
     & span {
       width: 100%;
-      
+
     }
 
   }
 }
 #wind-direction {
   position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   @include absCenter;
 }
 .widget {

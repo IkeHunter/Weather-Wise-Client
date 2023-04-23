@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Summary } from 'src/app/models/summary.model';
-import { ConditionMapPipe } from 'src/app/pipes/condition-map.pipe';
-import { ConditionValuePipe } from 'src/app/pipes/condition-value.pipe';
+import { ConditionMapPipe } from 'src/app/pipes/conditions.pipe';
+import { ConditionValuePipe } from 'src/app/pipes/conditions.pipe';
 import { ApiSummary } from 'src/app/services/api.service';
 
 @Component({

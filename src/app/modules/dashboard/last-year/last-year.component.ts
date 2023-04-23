@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Summary } from 'src/app/models/summary.model';
-import { ConditionMapPipe } from 'src/app/pipes/condition-map.pipe';
+import { ConditionMapPipe } from 'src/app/pipes/conditions.pipe';
 import { ApiSummary } from 'src/app/services/api.service';
 
 @Component({
