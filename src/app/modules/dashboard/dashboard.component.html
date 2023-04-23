@@ -5,11 +5,12 @@
     <app-last-year class="widget widget--2col widget-3-1"></app-last-year>
     <app-forcast class="widget widget-3-4"></app-forcast>
     <app-radar class="widget widget-6-2"></app-radar>
-    <app-hottest-day class="widget widget-1-1"></app-hottest-day>
+    <app-dynamic-widget class="widget widget-1-1" *ngFor="let widget of widgets" [widget]="widget"></app-dynamic-widget>
+    <!-- <app-hottest-day class="widget widget-1-1"></app-hottest-day>
     <app-coldest-day class="widget widget-1-1"></app-coldest-day>
     <app-muggiest-day class="widget widget-1-1"></app-muggiest-day>
     <app-latest-sunrise class="widget widget-1-1"></app-latest-sunrise>
-    <app-rainiest-day class="widget widget-1-1"></app-rainiest-day>
+    <app-rainiest-day class="widget widget-1-1"></app-rainiest-day> -->
   </section>
 </div>
 

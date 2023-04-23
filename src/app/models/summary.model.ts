@@ -4,22 +4,19 @@ export class Summary extends Page {
   current_conditions: Condition;
   last_year: Condition;
   forecast: Forecast;
+  widgets: Condition[];
 
-  constructor(args: { current_conditions: any, last_year: Condition, forecast: Forecast, location: number, user: number }) {
+  constructor(args: { current_conditions: any, last_year: Condition, forecast: Forecast, widgets: Condition[], location: number, user: number }) {
     // super(location, user);
     super();
     this.location = args.location;
     this.user = args.user;
     this.current_conditions = args.current_conditions;
     this.last_year = args.last_year;
-    console.log("forecast raw: ")
-    console.log(args.forecast)
     this.forecast = args.forecast;
+    this.widgets = args.widgets;
 
     this.forecast = new Forecast(args.forecast);
-    console.log("args: ")
-    console.log(args)
-    console.log(args.current_conditions)
   }
 }
 
@@ -57,8 +54,6 @@ export class Forecast {
     this.wind_deg = args.wind_deg;
 
     for(let table of args.table) {
-      console.log("table: ")
-      console.log(table)
 
       var type: any;
       if(table.type === "Temperature Forecast") {

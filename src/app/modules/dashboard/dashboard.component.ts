@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Summary } from 'src/app/models/summary.model';
-import { ApiSummary } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,16 +6,23 @@ import { ApiSummary } from 'src/app/services/api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  // response: Observable<Summary> = new ApiSummary(http).getSummary();
-  // summary: Summary
-  // summary = {} as Summary;
+  allWidgets = [
+    "hottest_day",
+    "coldest_day",
+    // "rainiest_day",
+    "latest_sunrise",
+    "muggiest_day",
+    "earliest_sunrise",
+    "latest_sunset",
+    "earliest_sunset",
+  ]
+  widgets: string[] = []
 
-  // constructor(private apiService: ApiSummary) {
-  //   this.apiService.getSummary().subscribe((data: Summary) => {
-  //     // console.log(data);
-  //     // this.summary = data;
-  //   })
-  // }
+  constructor() {
+    for(let i = 0; i < 5; i++) {
+      this.widgets.push(this.allWidgets[i]);
+    }
+  }
 
 
 

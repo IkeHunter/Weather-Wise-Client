@@ -29,12 +29,16 @@ import { LottieModule } from "./lottie/lottie.module";
 import { HourPipe } from './pipes/time.pipe';
 import { DayPipe } from './pipes/time.pipe';
 import { DayMonthYear } from './pipes/time.pipe';
+import { DayMonth } from './pipes/time.pipe';
 import { ConditionSymbolPipe } from './pipes/conditions.pipe';
 import { ConditionValuePipe } from './pipes/conditions.pipe';
 import { ConditionMapPipe } from './pipes/conditions.pipe';
 import { ConditionRangePipe } from './pipes/conditions.pipe';
 import { TimePipe } from './pipes/time.pipe';
 import { ConditionsPipe } from './pipes/conditions.pipe';
+import { DynamicWidgetComponent } from './modules/dashboard/dynamic-widget/dynamic-widget.component';
+import { WidgetsPipe } from './pipes/widgets.pipe';
+import { WidgetTitlePipe } from './pipes/widgets.pipe';
 
 @NgModule({
     declarations: [
@@ -63,12 +67,16 @@ import { ConditionsPipe } from './pipes/conditions.pipe';
         HourPipe,
         DayPipe,
         DayMonthYear,
+        DayMonth,
+        WidgetTitlePipe,
         ConditionSymbolPipe,
         ConditionValuePipe,
         ConditionMapPipe,
         ConditionRangePipe,
         TimePipe,
-        ConditionsPipe
+        ConditionsPipe,
+        DynamicWidgetComponent,
+        WidgetsPipe
     ],
     providers: [],
     bootstrap: [AppComponent],

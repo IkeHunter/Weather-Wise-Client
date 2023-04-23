@@ -66,3 +66,21 @@ export class DayMonthYear implements PipeTransform {
   }
 
 }
+
+@Pipe({
+  name: 'toDayMonth'
+})
+export class DayMonth implements PipeTransform {
+  /**
+   * Converts unix timestamp to day of the month
+   * @param value string, unix timestamp
+   * @returns string, 00/00
+   */
+  transform(value: number): string {
+    var timestamp = Number(value);
+    var date = new Date(timestamp * 1000);
+    return date.toLocaleDateString("en-US", {month: "short", day: "numeric"});
+    // return String(date.getUTCMonth() + 1) + "/" + String(date.getUTCDate());
+  }
+
+}
