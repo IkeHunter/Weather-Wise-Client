@@ -1,15 +1,16 @@
 <div class="search-row">
-  <span class="circle-icon">
-    <span class="material-icons">cloud</span>
-  </span>
-  <div class="search-row__date">
-    <span class="heading-3">Date</span>
-    <span class="small-label-text">3/27/22</span>
+  <div class="search-row__info">
+    <span class="circle-icon">
+      <span class="material-icons">cloud</span>
+    </span>
+    <div class="search-row__date">
+      <span class="heading-3">Date</span>
+      <span class="small-label-text">{{ result.date | toDayMonthYear}}</span>
+    </div>
   </div>
-  <span class="search-row__condition small-label-text">Condition 10%</span>
-  <span class="search-row__condition small-label-text">Condition 10%</span>
-  <span class="search-row__condition small-label-text">Condition 10%</span>
-  <span class="search-row__condition small-label-text">Condition 10%</span>
-  <span class="search-row__condition small-label-text">Condition 10%</span>
+
+  <ng-container *ngFor="let condition of resultConditions | keyvalue; let i = index">
+    <span class="search-row__condition small-label-text" *ngIf="i >=0">{{ condition.key }} {{ condition.value }}</span>
+  </ng-container>
 </div>
 

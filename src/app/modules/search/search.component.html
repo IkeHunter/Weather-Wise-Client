@@ -1,9 +1,9 @@
 <div class="container">
   <div class="widget-container">
-    <app-search-criteria class="widget widget-3-4 search-criteria"></app-search-criteria>
-    <app-top-result class="widget widget-1-1"></app-top-result>
-    <app-top-result class="widget widget-1-1"></app-top-result>
-    <app-top-result class="widget widget-1-1"></app-top-result>
-    <app-search-results class="search-results"></app-search-results>
+    <app-search-criteria class="widget widget-3-4 search-criteria" (searchData)="collectDays($event)" ></app-search-criteria>
+    <ng-container>
+      <app-top-result class="widget widget-1-1" *ngFor="let result of topResults" [topResult]="result"></app-top-result>
+    </ng-container>
+    <app-search-results class="search-results" [results]="allResults"></app-search-results>
   </div>
 </div>

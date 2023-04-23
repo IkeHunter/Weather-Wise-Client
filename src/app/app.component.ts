@@ -14,8 +14,6 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.apiService.getPackage().subscribe((data: any) => {
-      console.log(data);
-    })
+
   }
 }

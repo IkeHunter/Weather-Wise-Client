@@ -1,7 +1,7 @@
 <div class="top-result__header">
   <div>
     <h3>Top Result</h3>
-    <span class="heading-3 top-result__date">4/25/22</span>
+    <span class="heading-3 top-result__date">{{ topResult.date | toDayMonthYear }}</span>
   </div>
   <span class="circle-icon">
     <span class="material-icons">cloud</span>
@@ -14,9 +14,11 @@
       <th>Condition</th>
       <th>Value</th>
     </tr>
-    <tr *ngFor="let condition of conditions | keyvalue">
-      <td>{{ condition.key }}</td>
-      <td>{{ condition.value }}</td>
+    <tr *ngFor="let condition of conditions | keyvalue; let i = index">
+      <ng-container *ngIf="i < 4">
+        <td>{{ condition.key }}</td>
+        <td>{{ condition.value }}</td>
+      </ng-container>
     </tr>
   </table>
 </div>

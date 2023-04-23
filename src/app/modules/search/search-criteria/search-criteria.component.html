@@ -1,23 +1,51 @@
 <h3>Search Criteria</h3>
 
-<form class="form-group" action="submit" method="get">
-  <div class="form-control">
-    <label for="date">Date</label>
-    <input type="date" name="to-date" id="to-date" />
-    <input type="date" name="from-date" id="from-date" />
+<form class="form-group" (ngSubmit)="onSubmit()" #f="ngForm">
+  <div ngModelGroup="criteria" #criteria="ngModelGroup">
+    <div class="form-control" >
+      <label for="date">Date</label>
+      <input
+        type="date"
+        name="startDate"
+        ngModel
+        #startDate="ngModel"
+        id="startDate" />
+      <input
+        type="date"
+        name="endDate"
+        ngModel
+        #endDate="ngModel"
+        id="endDate" />
+    </div>
+    <div class="form-control">
+      <label for="temperature">Temperature</label>
+      <input
+        type="text"
+        name="temperature"
+        ngModel
+        #temperature="ngModel"
+        id="temperature" />
+    </div>
+    <div class="form-control">
+      <label for="precipitation">Precipitation</label>
+      <input
+        type="text"
+        name="precipitation"
+        ngModel
+        #precipitation="ngModel"
+        id="precipitation" />
+    </div>
+    <div class="form-control">
+      <label for="humidity">Humidity</label>
+      <input
+        type="text"
+        name="humidity"
+        ngModel
+        #humidity="ngModel"
+        id="humidity" />
+    </div>
   </div>
-  <div class="form-control">
-    <label for="temperature">Temperature</label>
-    <input type="text" name="temperature" id="temperature" />
-  </div>
-  <div class="form-control">
-    <label for="precipitation">Precipitation</label>
-    <input type="text" name="precipitation" id="precipitation" />
-  </div>
-  <div class="form-control">
-    <label for="humidity">Humidity</label>
-    <input type="text" name="humidity" id="humidity" />
-  </div>
-  <div class="form-control"><button class="btn" type="submit">Search</button></div>
+
+  <div class="form-control"><button class="btn" type="submit" [disabled]="!buttonEnabled">Search</button></div>
 
 </form>
