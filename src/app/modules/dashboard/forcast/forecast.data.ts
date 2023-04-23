@@ -1,8 +1,9 @@
 function randomInt(): number {
-  return Math.floor(Math.random() * 100);
+  // return Math.floor(Math.random() * 100);
+  return 0;
 }
 
-export var forecastData = {
+export var forecastSeed = {
   temperature: {
     hour: {
       "1682899200": randomInt(),

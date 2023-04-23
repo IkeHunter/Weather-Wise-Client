@@ -12,25 +12,15 @@ export class Summary extends Page {
     this.user = args.user;
     this.current_conditions = args.current_conditions;
     this.last_year = args.last_year;
+    console.log("forecast raw: ")
+    console.log(args.forecast)
     this.forecast = args.forecast;
+
+    this.forecast = new Forecast(args.forecast);
     console.log("args: ")
     console.log(args)
     console.log(args.current_conditions)
   }
-
-  // forecast: {
-  //   date: BigInt;
-  //   sunrise: BigInt;
-  //   sunset: BigInt;
-  //   windSpeed: number;
-  //   windDeg: number;
-  //   table: [
-  //     {
-  //       type: string;
-  //       range: string;
-  //     }
-  //   ]
-  // }
 }
 
 export interface Condition {
@@ -45,24 +35,69 @@ export interface Condition {
   weather_name: string;
   icon: string;
 }
-export interface Forecast {
-  date: BigInt;
-  sunrise: BigInt;
-  sunset: BigInt;
+export class Forecast {
+  date: number;
+  sunrise: number;
+  sunset: number;
   wind_speed: number;
   wind_deg: number;
-  // table: [ForecastTable];
-  table: ForecastTable[];
+  // table: ForecastTable[];
+  temperature: ForecastTable = new ForecastTable();
+  precipitation: ForecastTable = new ForecastTable();
+  humidity: ForecastTable = new ForecastTable();
+  wind: ForecastTable = new ForecastTable();
+  table: any;
+
+  constructor(args: {date: number, sunrise: number, sunset: number, wind_speed: number, wind_deg: number, table: Array<any>}) {
+    this.date = args.date;
+    this.sunrise = args.sunrise;
+    this.sunset = args.sunset;
+    this.wind_speed = args.wind_speed;
+    this.wind_deg = args.wind_deg;
+
+    for(let table of args.table) {
+      console.log("table: ")
+      console.log(table)
+
+      var type: any;
+      if(table.type === "Temperature Forecast") {
+        type = this.temperature;
+      } else if(table.type === "Precipitation Forecast") {
+        type = this.precipitation;
+      } else if(table.type === "Humidity Forecast") {
+        type = this.humidity;
+      } else if(table.type === "Wind Forecast") {
+        type = this.wind;
+      }
+
+      var range: any;
+      if(table.range === "h") {
+        range = type.hour;
+      } else if(table.range === "d") {
+        range = type.day;
+      } else {
+        range = {};
+      }
+
+      for(let interval of table.values) {
+        range.set(interval.time, interval.value as number);
+      }
+
+    }
+  }
+
+
+
 }
-export interface ForecastTable {
-  type: string;
-  range: string;
-  // values: [ForecastRow];
-  values: ForecastRow[];
+export class ForecastTable {
+  hour: Map<String, number>;
+  day: Map<String, number>;
+
+  constructor() {
+    this.hour = new Map<String, number>();
+    this.day = new Map<String, number>();
+  }
 }
-export interface ForecastRow {
-  value: number;
-  time: BigInt;
-}
+
 
 

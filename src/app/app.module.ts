@@ -31,6 +31,8 @@ import { DayPipe } from './pipes/day.pipe';
 import { ConditionSymbolPipe } from './pipes/condition-symbol.pipe';
 import { ConditionValuePipe } from './pipes/condition-value.pipe';
 import { ConditionMapPipe } from './pipes/condition-map.pipe';
+import { ConditionRangePipe } from './pipes/condition-range.pipe';
+import { TimePipe } from './pipes/time.pipe';
 
 @NgModule({
     declarations: [
@@ -60,7 +62,9 @@ import { ConditionMapPipe } from './pipes/condition-map.pipe';
         DayPipe,
         ConditionSymbolPipe,
         ConditionValuePipe,
-        ConditionMapPipe
+        ConditionMapPipe,
+        ConditionRangePipe,
+        TimePipe
     ],
     providers: [],
     bootstrap: [AppComponent],

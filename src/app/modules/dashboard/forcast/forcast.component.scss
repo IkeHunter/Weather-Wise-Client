@@ -3,9 +3,37 @@
 .lottie {
   height: 125px;
 }
+.lottie-block {
+  text-align: center;
+
+  & .lottie-data {
+    position: absolute;
+    bottom: -10px;
+    // left: 50%;
+    // transform: translateX(-50%);
+    width: 100%;
+  }
+}
+.animation-summary {
+  & td {
+    text-align: center;
+    & span {
+      width: 100%;
+      
+    }
+
+  }
+}
+#wind-direction {
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  @include absCenter;
+}
 .widget {
   &__summary {
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   &__control {
     display: flex;

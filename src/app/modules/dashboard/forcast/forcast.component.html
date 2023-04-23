@@ -1,18 +1,58 @@
 <h3>Weather Forecast</h3>
-<div class="widget__summary">
+<div class="widget__summary lottie-block">
   <div class="widget__summary__block">
     <app-lottie-sun class="lottie"></app-lottie-sun>
+    <ng-container>
+      <span class="small-label-text lottie-data" *ngIf="sunrise">Sunrise: {{ forecast.sunrise | toTime }}</span>
+      <span class="small-label-text lottie-data" *ngIf="!sunrise">Sunset: {{ forecast.sunset | toTime }}</span>
+    </ng-container>
+
   </div>
   <div class="widget__summary__block">
+    <span class="heading-3" id="wind-direction">{{ getWindDirection() }}</span>
     <app-lottie-compass class="lottie"></app-lottie-compass>
+    <span class="small-label-text lottie-data">Wind Speed: {{ forecast.wind_speed }} mph</span>
   </div>
-
-
 </div>
+<!-- <table class="animation-summary">
+  <tr>
+    <td>
+      <ng-container>
+      <span class="xsmall-label-text" *ngIf="sunrise">Sunrise: {{ forecast.sunrise | toTime }}</span>
+      <span class="xsmall-label-text" *ngIf="!sunrise">Sunset: {{ forecast.sunset | toTime }}</span>
+    </ng-container>
+  </td>
+    <td><span class="xsmall-label-text">Wind Speed: {{ forecast.wind_speed }} mph</span></td>
+  </tr>
+</table> -->
+<table>
+  <!-- <tr>
+    <td class="xsmall-label-text">
+      <table>
+        <tr>
+          <td class="xsmall-label-text">{{ forecast.sunrise | toTime }}</td>
+          <td class="xsmall-label-text">{{ forecast.sunset | toTime }}</td>
+        </tr>
+        <tr>
+          <td class="xsmall-label-text">Sunrise</td>
+          <td class="xsmall-label-text">Sunset</td>
+        </tr>
+      </table>
+    </td>
+    <td class="xsmall-label-text">Wind Speed: {{ forecast.wind_speed }}mph</td>
+  </tr> -->
+  <!-- <tr>
+    <td class="small-text">{{ forecast.sunrise | toTime }}</td>
+    <td>{{ forecast.sunset | toTime }}</td>
+  </tr>
+  <tr>
+    <td>Sunrise</td>
+    <td>Sunset</td>
+  </tr> -->
+</table>
 <div class="widget__chart">
   <div class="widget__control">
-
-    <h4>Temperature Forecast</h4>
+    <h4>{{conditionType | conditionRange: timeRange}}</h4>
     <div class="circle-container">
       <span class="circle"><a (click)="changeRange('hour')">H</a></span>
       <span class="circle"><a (click)="changeRange('day')">D</a></span>
@@ -25,12 +65,24 @@
       <th>Temperature</th>
     </tr>
 
-    <tr *ngFor="let forecast of forecastIntervalData | keyvalue">
+    <ng-container *ngFor="let forecast of forecastIntervalData | keyvalue; let i = index;">
+      <tr *ngIf="i < 11">
+        <td *ngIf="timeRange == 'hour'">{{ forecast.key | toHour }}</td>
+        <td *ngIf="timeRange == 'day'">{{ forecast.key | toDay }}</td>
+        <td><span [ngStyle]="{'width': convertWidth(forecast.value) + '%'}">&nbsp;</span></td>
+        <td>{{ forecast.value }}{{ conditionType | conditionSymbol}}</td>
+      </tr>
+    </ng-container>
+
+
+    <!-- <tr *ngFor="let forecast of forecastIntervalData | keyvalue">
       <td *ngIf="timeRange == 'hour'">{{ forecast.key | toHour }}</td>
       <td *ngIf="timeRange == 'day'">{{ forecast.key | toDay }}</td>
-      <td><span [ngStyle]="{'width': forecast.value + '%'}">&nbsp;</span></td>
+      <td><span [ngStyle]="{'width': convertWidth(forecast.value) + '%'}">&nbsp;</span></td>
       <td>{{ forecast.value }}{{ conditionType | conditionSymbol}}</td>
-    </tr>
+    </tr> -->
+
+
     <!-- <tr *ngFor="let forecast of forecastIntervals | keyvalue">
       <td>{{ forecast.value[0] }}</td>
       <td><span [ngStyle]="{'width': forecast.value + '%'}">&nbsp;</span></td>
