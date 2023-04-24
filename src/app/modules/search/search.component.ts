@@ -19,8 +19,13 @@ export class SearchComponent {
 
     this.allResults = days;
 
-    for(let i = 0; i < 3; i++) {
-      this.topResults.push(days[i]);
+    // for(let i = 0; i < 3; i++) {
+    //   this.topResults.push(days[i]);
+    // }
+    for(let day of days) {
+      if(day.widget_title == "top_result") {
+        this.topResults.push(day);
+      }
     }
   }
 

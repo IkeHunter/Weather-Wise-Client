@@ -1,7 +1,7 @@
 <h3>Search Criteria</h3>
 
-<form class="form-group" (ngSubmit)="onSubmit()" #f="ngForm">
-  <div ngModelGroup="criteria" #criteria="ngModelGroup">
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <div class="form-group" ngModelGroup="criteria" #criteria="ngModelGroup">
     <div class="form-control" >
       <label for="date">Date</label>
       <input
@@ -44,8 +44,8 @@
         #humidity="ngModel"
         id="humidity" />
     </div>
+    <div class="form-control"><button class="btn" type="submit" [disabled]="!buttonEnabled">Search</button></div>
   </div>
 
-  <div class="form-control"><button class="btn" type="submit" [disabled]="!buttonEnabled">Search</button></div>
 
 </form>

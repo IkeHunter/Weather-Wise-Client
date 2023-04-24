@@ -74,6 +74,16 @@ Define widget size as col-row, with col being two standard columns
 
   }
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__date {
+    color: $medium-blue;
+    display: block;
+    margin-top: 10px;
+
+  }
 
   &__table {
     display: grid;

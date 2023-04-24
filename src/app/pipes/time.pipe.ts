@@ -79,8 +79,7 @@ export class DayMonth implements PipeTransform {
   transform(value: number): string {
     var timestamp = Number(value);
     var date = new Date(timestamp * 1000);
-    return date.toLocaleDateString("en-US", {month: "short", day: "numeric"});
-    // return String(date.getUTCMonth() + 1) + "/" + String(date.getUTCDate());
+    return date.toLocaleDateString("en-US", {month: "long", day: "numeric", year: "numeric"});
   }
 
 }

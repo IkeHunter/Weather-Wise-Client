@@ -1,29 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Condition } from 'src/app/models/summary.model';
+import { ApiSummary } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  allWidgets = [
-    "hottest_day",
-    "coldest_day",
-    // "rainiest_day",
-    "latest_sunrise",
-    "muggiest_day",
-    "earliest_sunrise",
-    "latest_sunset",
-    "earliest_sunset",
-  ]
-  widgets: string[] = []
+export class DashboardComponent implements OnInit {
+  miniWidgets: Condition[];
 
-  constructor() {
-    for(let i = 0; i < 5; i++) {
-      this.widgets.push(this.allWidgets[i]);
-    }
+  constructor(private apiSummary: ApiSummary) {}
+
+  ngOnInit() {
+    this.apiSummary.getSummary().subscribe((data: any) => {
+      this.miniWidgets = data[0].widgets;
+
+      this.miniWidgets = this.miniWidgets.sort((a, b) => 0.5 - Math.random());
+      console.log("mini widgets: ");
+      console.log(this.miniWidgets);
+    })
   }
-
-
-
 }

@@ -1,13 +1,20 @@
 @import 'main';
 
 .widget-container {
-  @include widgetRows(5);
+  @include widgetRows(6);
+  // margin-top: 20px;
 }
 .search-criteria {
-  min-height: calc($row-height * 6);
+  // min-height: calc($row-height * 6);
+
+  min-height: calc($row-height * 3);
+  grid-row: span 5;
 }
 .search-results {
   grid-column: span 6;
+}
+.container {
+  overflow: auto;
 }
 
 

@@ -17,11 +17,6 @@ import { BeachClosestComponent } from './modules/dashboard/beach-closest/beach-c
 import { ForcastComponent } from './modules/dashboard/forcast/forcast.component';
 import { CurrentConditionsComponent } from './modules/dashboard/current-conditions/current-conditions.component';
 import { LocationComponent } from './modules/dashboard/location/location.component';
-import { ColdestDayComponent } from './modules/dashboard/mini-widgets/coldest-day/coldest-day.component';
-import { RainiestDayComponent } from './modules/dashboard/mini-widgets/rainiest-day/rainiest-day.component';
-import { LatestSunriseComponent } from './modules/dashboard/mini-widgets/latest-sunrise/latest-sunrise.component';
-import { MuggiestDayComponent } from './modules/dashboard/mini-widgets/muggiest-day/muggiest-day.component';
-import { HottestDayComponent } from './modules/dashboard/mini-widgets/hottest-day/hottest-day.component';
 import { SearchCriteriaComponent } from './modules/search/search-criteria/search-criteria.component';
 import { TopResultComponent } from './modules/search/top-result/top-result.component';
 import { SearchResultsComponent } from './modules/search/search-results/search-results.component';
@@ -56,11 +51,6 @@ import { WidgetTitlePipe } from './pipes/widgets.pipe';
         ForcastComponent,
         CurrentConditionsComponent,
         LocationComponent,
-        ColdestDayComponent,
-        RainiestDayComponent,
-        LatestSunriseComponent,
-        MuggiestDayComponent,
-        HottestDayComponent,
         SearchCriteriaComponent,
         TopResultComponent,
         SearchResultsComponent,
