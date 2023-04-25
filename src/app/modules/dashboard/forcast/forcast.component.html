@@ -3,8 +3,8 @@
   <div class="widget__summary__block">
     <app-lottie-sun class="lottie"></app-lottie-sun>
     <ng-container>
-      <span class="small-label-text lottie-data" *ngIf="sunrise">Sunrise: {{ forecast.sunrise | toTime }}</span>
-      <span class="small-label-text lottie-data" *ngIf="!sunrise">Sunset: {{ forecast.sunset | toTime }}</span>
+      <span class="small-label-text lottie-data" *ngIf="showSunRise">Sunrise: {{ forecast.sunrise | toTime }}</span>
+      <span class="small-label-text lottie-data" *ngIf="!showSunRise">Sunset: {{ forecast.sunset | toTime }}</span>
     </ng-container>
 
   </div>
