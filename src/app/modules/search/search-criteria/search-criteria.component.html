@@ -3,13 +3,15 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm">
   <div class="form-group" ngModelGroup="criteria" #criteria="ngModelGroup">
     <div class="form-control" >
-      <label for="date">Date</label>
+      <!-- <label for="date">Date</label> -->
+      <label for="startDate">Start Date</label>
       <input
         type="date"
         name="startDate"
         ngModel
         #startDate="ngModel"
         id="startDate" />
+      <label for="endDate">End Date</label>
       <input
         type="date"
         name="endDate"

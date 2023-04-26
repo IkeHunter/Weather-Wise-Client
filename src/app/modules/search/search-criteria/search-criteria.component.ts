@@ -28,17 +28,18 @@ export class SearchCriteriaComponent {
   onSubmit() {
     let searchResponse = this.searchForm.value.criteria;
 
-    this.searchCriteria.startDate = searchResponse.startDate;
-    this.searchCriteria.endDate = searchResponse.endDate;
+    // this.searchCriteria.startDate = searchResponse.startDate;
+    // this.searchCriteria.endDate = searchResponse.endDate;
+    this.searchCriteria.startDate = (Math.floor(new Date(searchResponse.startDate).getTime() / 1000)).toString();
+    this.searchCriteria.endDate = (Math.floor(new Date(searchResponse.endDate).getTime() / 1000)).toString();
     this.searchCriteria.temperature = searchResponse.temperature;
     this.searchCriteria.precipitation = searchResponse.precipitation;
     this.searchCriteria.humidity = searchResponse.humidity;
 
     this.buttonEnabled = false;
 
-    this.apiSearch.searchDays(this.searchCriteria).subscribe((data: any) => {
+    this.apiSearch.searchDays(this.searchCriteria).subscribe((data: Condition[]) => {
       this.buttonEnabled = true;
-
       this.searchData.emit(data);
     })
 

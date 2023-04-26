@@ -30,6 +30,7 @@ import { ConditionSymbolPipe } from './pipes/conditions.pipe';
 import { ConditionValuePipe } from './pipes/conditions.pipe';
 import { ConditionMapPipe } from './pipes/conditions.pipe';
 import { ConditionRangePipe } from './pipes/conditions.pipe';
+import { WeatherIconPipe } from './pipes/conditions.pipe';
 import { TimePipe } from './pipes/time.pipe';
 import { ConditionsPipe } from './pipes/conditions.pipe';
 import { DynamicWidgetComponent } from './modules/dashboard/dynamic-widget/dynamic-widget.component';
@@ -64,6 +65,7 @@ import { WidgetTitlePipe } from './pipes/widgets.pipe';
         ConditionValuePipe,
         ConditionMapPipe,
         ConditionRangePipe,
+        WeatherIconPipe,
         TimePipe,
         ConditionsPipe,
         DynamicWidgetComponent,

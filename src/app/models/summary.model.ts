@@ -20,6 +20,33 @@ export class Summary extends Page {
   }
 }
 
+// export class Condition {
+//   widget_title: string;
+//   average_temp: number;
+//   feels_like: number;
+//   pressure: number;
+//   humidity: number;
+//   wind_peed: number;
+//   pop: number;
+//   rain_level: number;
+//   weather_name: string;
+//   icon: string;
+//   date: number;
+
+//   constructor(args: {widget_title: string, average_temp: number, feels_like: number, pressure: number, humidity: number, wind_peed: number, pop: number, rain_level: number, weather_name: string, icon: string, date: number}) {
+//     this.widget_title = args.widget_title;
+//     this.average_temp = args.average_temp;
+//     this.feels_like = args.feels_like;
+//     this.pressure = args.pressure;
+//     this.humidity = args.humidity;
+//     this.wind_peed = args.wind_peed;
+//     this.pop = args.pop;
+//     this.rain_level = args.rain_level;
+//     this.weather_name = args.weather_name;
+//     this.icon = args.icon;
+//     this.date = args.date;
+//   }
+// }
 export interface Condition {
   widget_title: string;
   average_temp: number;

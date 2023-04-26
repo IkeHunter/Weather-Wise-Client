@@ -101,6 +101,8 @@ export class ConditionMapPipe implements PipeTransform {
    */
   transform(originalCondition: Condition): Map<String, String> {
     var conditions = new Map<String, String>();
+    originalCondition.average_temp = Math.round((originalCondition.average_temp - 273.15) * 9/5 + 32);
+    originalCondition.feels_like = Math.round((originalCondition.feels_like - 273.15) * 9/5 + 32);
 
     conditions.set('Average Temp', (originalCondition.average_temp || 0).toString() + 'º');
     conditions.set('Feels Like', (originalCondition.feels_like || 0).toString() + 'º');
@@ -110,6 +112,32 @@ export class ConditionMapPipe implements PipeTransform {
     conditions.set('Rain Level', (originalCondition.rain_level || 0).toString() + '"');
 
     return conditions;
+  }
+
+}
+
+@Pipe({
+  name: 'kToF'
+})
+export class KelvinToFahrenheit implements PipeTransform {
+
+  transform(value: number): number {
+    return Math.round((value - 273.15) * 9/5 + 32);
+  }
+
+}
+
+@Pipe({
+  name: 'weatherIcon'
+})
+export class WeatherIconPipe implements PipeTransform {
+
+  transform(value: string): string {
+    if(value.includes("n")) {
+      let re = /n/gi;
+      return value.replace(re, "d");
+    }
+    return value;
   }
 
 }

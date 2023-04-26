@@ -104,16 +104,30 @@ export class ApiSearch {
 
   searchDays(data: SearchCriteria): Observable<Condition[]> {
     let body = {
-      date_start: data.startDate,
-      date_end: data.endDate,
+      start: data.startDate,
+      end: data.endDate,
       temperature: data.temperature,
       precipitation: data.precipitation,
-      humidity: data.humidity
+      humidity: data.humidity,
+      location: locationEnv.postal_code
     }
+    // let url = this.baseUrl + '?start=' + data.startDate + '&end=' + data.endDate + '&temperature=' + data.temperature + '&precipitation=' + data.precipitation + '&humidity=' + data.humidity;
 
     let json = JSON.stringify(body);
 
-    return this.http.post<Condition[]>(this.baseUrl, json, {headers: this.headers});
+    return this.http.post<Condition[]>(this.baseUrl, json, {headers: this.headers}).pipe(
+      map((data: any) => {
+        data = JSON.parse(data);
+        let result: Array<Condition> = [];
+        for(let i = 0; i < 50; i++) {
+          if(data[i]) {
+            let day: Condition = data[i] as Condition;
+            result.push(day);
+          }
+        }
+        return result
+      })
+    )
   }
 
 
