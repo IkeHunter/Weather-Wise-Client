@@ -36,6 +36,9 @@ import { DynamicWidgetComponent } from './modules/dashboard/dynamic-widget/dynam
 import { WidgetsPipe } from './pipes/widgets.pipe';
 import { WidgetTitlePipe } from './pipes/widgets.pipe';
 
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -80,3 +83,15 @@ import { WidgetTitlePipe } from './pipes/widgets.pipe';
     ]
 })
 export class AppModule { }
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDTBRyoc71WJo53-HTIEqmyeaMpXBXNeIg",
+  authDomain: "weatherwise-1a715.firebaseapp.com",
+  projectId: "weatherwise-1a715",
+  storageBucket: "weatherwise-1a715.appspot.com",
+  messagingSenderId: "213156827900",
+  appId: "1:213156827900:web:fd45bc43f068fcb248bd79",
+  measurementId: "G-TC75H1W4E8"
+};
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
