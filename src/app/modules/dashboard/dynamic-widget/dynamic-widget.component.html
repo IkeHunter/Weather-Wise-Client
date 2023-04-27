@@ -1,34 +1,10 @@
-<!-- <h3>{{ widget | widgetTitle }}</h3>
-<span class="xsmall-label-text">Conditions on {{ date | toDayMonthYear }}</span>
-<div class="widget__summary__block">
-  <span class="data-font">{{ date | toDayMonth }}</span>
-</div>
-
-<div class="widget__table">
-  <table>
-    <tr>
-      <th>Condition</th>
-      <th>Value</th>
-    </tr>
-    <ng-container *ngFor="let condition of conditions | keyvalue; let i = index;">
-      <tr *ngIf="i<3">
-        <td>{{ condition.key }}</td>
-        <td>{{ condition.value }}</td>
-      </tr>
-    </ng-container>
-  </table>
-</div> -->
-
 <div class="widget__header">
   <div>
     <h3>{{ widget.widget_title| widgetTitle }}</h3>
     <span class="heading-3 widget__date">{{widget.date | toDayMonth }}</span>
   </div>
-  <!-- <div class="widget__summary__block">
-    <span class="data-font">{{ widgetData.date | toDayMonth }}</span>
-  </div> -->
+
   <span class="circle-icon">
-    <!-- <span class="material-icons">cloud</span> -->
     <img src="https://openweathermap.org/img/wn/{{ widget.icon | weatherIcon }}@2x.png" alt="weather-icon" />
   </span>
 </div>

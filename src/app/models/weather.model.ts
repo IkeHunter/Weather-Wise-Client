@@ -1,6 +1,7 @@
 export class Page {
   location: number;
   user: number;
+  city: string;
 
 }
 

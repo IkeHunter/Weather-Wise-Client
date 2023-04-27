@@ -17,8 +17,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.apiSummary.getSummary().subscribe((data: any) => {
-      // this.miniWidgets = data[0].widgets;
-      // this.summary = data[0];
       this.summary = new Summary(data[0]);
       this.miniWidgets = this.summary.widgets;
 

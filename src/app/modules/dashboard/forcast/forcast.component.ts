@@ -17,25 +17,21 @@ export class ForcastComponent implements OnInit, OnChanges{
   forecast: Forecast;
   kToF = new KelvinToFahrenheit().transform;
 
-  // sunrise: number = 0;
-  // sunset: number = 0;
-
   barWidth: number = 70;
-
   sunAnimation: any;
   compassAnimation: any;
-
   sunPosition: number = 0;
   compassPosition: number = 0;
 
   sunrise: number = 0;
   sunset: number = 0;
+  sunriseRaw: number = 0;
+  sunsetRaw: number = 0;
   showSunRise: boolean = true;
   wind_speed: number = 0;
 
   currentType: any = forecastSeed.temperature;
   conditionType = "temp";
-
   forecastIntervalData = new Map<string, number>(Object.entries(this.currentType.hour));
   timeRange = "hour";
 
@@ -45,7 +41,6 @@ export class ForcastComponent implements OnInit, OnChanges{
     ["humidity", 70],
     ["wind", 70]
   ]);
-
 
   constructor(private apiService: ApiSummary) {}
 
@@ -73,32 +68,13 @@ export class ForcastComponent implements OnInit, OnChanges{
   }
 
   ngOnInit() {
-
-    // this.apiService.getSummary().subscribe((data: Summary[]) => {
-    //   let summary = new Summary(data[0])
-    //   this.forecast = summary.forecast;
-
-
-    //   this.resetRange();
-    //   this.setBarWidths();
-    //   this.setSunPosition();
-    //   this.setCompassPosition();
-
-    //   console.log(this.forecast)
-    // })
-
     this.sunAnimation = document.getElementById("sunanimation");
     this.compassAnimation = document.getElementById("compassanimation");
 
     this.sunAnimation.addEventListener("ready", () => {
-      // this.sunAnimation.seek(`${this.sunPosition}%`);
-      // this.sunAnimation.pause()
-            this.setSunPosition();
+      this.setSunPosition();
     });
     this.compassAnimation.addEventListener("ready", () => {
-      this.compassAnimation.seek(`${this.compassPosition}%`);
-      this.compassAnimation.pause();
-
       this.setCompassPosition();
     })
 
@@ -159,7 +135,6 @@ export class ForcastComponent implements OnInit, OnChanges{
     let wind: number = 0;
     console.log("inside bar widths")
     console.log(this.forecast)
-    // console.log(this.summary)
 
     this.forecast.temperature.hour.forEach((value, index) => {
       this.forecast.temperature.hour.set(index, this.kToF(value));
@@ -170,13 +145,11 @@ export class ForcastComponent implements OnInit, OnChanges{
 
 
     for(let [i, value] of this.forecast.temperature.hour) {
-      // this.forecast.temperature.hour.set(i, this.kToF(value));
       if(value > temp) {
         temp = value;
       }
     }
     for(let [i, value] of this.forecast.temperature.day) {
-      // this.forecast.temperature.day.set(i, this.kToF(value));
       if(value > temp) {
         temp = value;
       }
@@ -226,10 +199,11 @@ export class ForcastComponent implements OnInit, OnChanges{
   }
 
   setSunPosition() {
-    // let currentTime: number = new Date(	1682335845 * 1000).getHours();
     let currentTime: number = new Date().getHours();
     this.sunrise = new Date(this.forecast.sunrise * 1000).getHours();
     this.sunset = new Date(this.forecast.sunset * 1000).getHours();
+    this.sunriseRaw = this.forecast.sunrise;
+    this.sunsetRaw = this.forecast.sunset;
 
     console.log("current time: " + currentTime)
     console.log("sunrise: " + this.sunrise)
@@ -271,7 +245,6 @@ export class ForcastComponent implements OnInit, OnChanges{
 
   getWindDirection(): string {
     let windDirection = this.forecast.wind_deg;
-    // let windDirection = 0;
 
     if(windDirection >348.75 || windDirection <= 11.25) {
       // N

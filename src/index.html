@@ -10,7 +10,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAiXbai8kazDZuLq6P1zyzlI_Z83uEkUdE&callback=initMap&v=weekly" defer></script>
+  <!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAiXbai8kazDZuLq6P1zyzlI_Z83uEkUdE&callback=initMap&v=weekly" defer></script> -->
+  <!-- <link href="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.9.0.css" rel="stylesheet"> -->
+  <link href="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.9.0.css" rel="stylesheet">
+<script src="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.9.0.js"></script>
+  <!-- <link rel="stylesheet" href="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.9.0.css" />
+  <script src="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.9.0.js"></script> -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap&v=weekly" defer></script> -->
 
 
@@ -39,27 +44,5 @@
 </head>
 <body>
   <app-root></app-root>
-  <script>
-    function initMap() {
-      let map = new google.maps.Map(document.getElementById("map"), {
-          center: {
-              lat: 29.6330969,
-              lng: -82.3570501
-          },
-          zoom: 6,
-      });
-      var rainMapOverlay = new google.maps.ImageMapType({
-          getTileUrl: function(coord, zoom) {
-              // return 'https://www.meteosource.com/api/v1/flexi/map?key=' + METEOSOURCE_API_KEY + '&tile_x=' + coord.x + '&tile_y=' + coord.y + '&tile_zoom=' + zoom + '&datetime=+1hour&variable=temperature'
-              return 'http://maps.openweathermap.org/maps/2.0/weather/TA2/' + zoom + '/' + coord.x + '/' + coord.y + '?date=1527811200&opacity=0.9&fill_bound=true&appid=79f1b8078781a18fc8918638e6c5ebc3'
-          },
-          tileSize: new google.maps.Size(256, 256)
-      });
-      map.overlayMapTypes.insertAt(0, rainMapOverlay)
-    }
-    window.initMap = initMap;
-
-  </script>
-
 </body>
 </html>

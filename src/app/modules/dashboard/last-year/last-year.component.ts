@@ -10,7 +10,6 @@ import { ApiSummary } from 'src/app/services/api.service';
 })
 export class LastYearComponent implements OnChanges {
   @Input() summary: Summary;
-  // summary: Summary;
   getCondition = new ConditionMapPipe().transform;
 
   conditions = new Map<String, String>();
@@ -31,18 +30,5 @@ export class LastYearComponent implements OnChanges {
 
       this.conditions = this.getCondition(this.summary.last_year);
     }
-  }
-
-  ngOnInit() {
-
-  //   this.apiService.getSummary().subscribe((data: Summary[]) => {
-  //     this.summary = data[0];
-
-  //     this.averageTemp = this.summary.last_year.average_temp;
-  //     this.chanceOfRain = this.summary.last_year.pop;
-  //     this.humidity = this.summary.last_year.humidity;
-
-  //     this.conditions = this.getCondition(this.summary.last_year);
-  //   })
   }
 }

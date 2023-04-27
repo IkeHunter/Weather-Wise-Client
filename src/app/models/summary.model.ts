@@ -6,7 +6,7 @@ export class Summary extends Page {
   forecast: Forecast;
   widgets: Condition[];
 
-  constructor(args: { current_conditions: any, last_year: Condition, forecast: Forecast, widgets: Condition[], location: number, user: number }) {
+  constructor(args: { current_conditions: any, last_year: Condition, forecast: Forecast, widgets: Condition[], location: number, user: number, city: string }) {
     // super(location, user);
     super();
     console.log("inside summary constructor")
@@ -16,6 +16,7 @@ export class Summary extends Page {
     this.current_conditions = new Condition(args.current_conditions);
     this.last_year = new Condition(args.last_year);
     this.forecast = new Forecast(args.forecast);
+    this.city = args.city;
     // this.widgets = args.widgets;
 
     this.widgets = [];

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiInitialize, ApiService } from './services/api.service';
+// import { ApiInitialize, ApiService } from './services/api.service';
 import { locationEnv } from 'src/environments/environments';
 import { ActivatedRoute } from '@angular/router';
 
