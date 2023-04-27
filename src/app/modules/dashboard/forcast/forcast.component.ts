@@ -1,8 +1,9 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, NgModule, OnChanges, OnInit } from '@angular/core';
 import { LottieModule } from 'src/app/lottie/lottie.module';
 import { forecastSeed } from './forecast.data';
 import { ApiSummary } from 'src/app/services/api.service';
 import { Forecast, Summary } from 'src/app/models/summary.model';
+import { KelvinToFahrenheit } from 'src/app/pipes/conditions.pipe';
 
 @Component({
   selector: 'app-forcast',
@@ -11,8 +12,13 @@ import { Forecast, Summary } from 'src/app/models/summary.model';
   providers: [LottieModule]
 })
 
-export class ForcastComponent implements OnInit{
+export class ForcastComponent implements OnInit, OnChanges{
+  @Input() summary: Summary;
   forecast: Forecast;
+  kToF = new KelvinToFahrenheit().transform;
+
+  // sunrise: number = 0;
+  // sunset: number = 0;
 
   barWidth: number = 70;
 
@@ -25,6 +31,7 @@ export class ForcastComponent implements OnInit{
   sunrise: number = 0;
   sunset: number = 0;
   showSunRise: boolean = true;
+  wind_speed: number = 0;
 
   currentType: any = forecastSeed.temperature;
   conditionType = "temp";
@@ -42,32 +49,58 @@ export class ForcastComponent implements OnInit{
 
   constructor(private apiService: ApiSummary) {}
 
-  ngOnInit() {
-
-    this.apiService.getSummary().subscribe((data: Summary[]) => {
-      let summary = new Summary(data[0])
-      this.forecast = summary.forecast;
-
-
+  ngOnChanges() {
+    if(this.summary != undefined) {
+      console.log("summary: ")
+      console.log(this.summary)
+      this.forecast = this.summary.forecast;
+      console.log("forecast: ")
+      console.log(this.forecast)
       this.resetRange();
       this.setBarWidths();
+      // this.compassAnimation.pause();
+      // this.sunAnimation.addEventListener("ready", () => {
+      //   this.sunAnimation.seek(`${this.sunPosition}%`);
+      //   this.sunAnimation.pause()
+      // });
+      // this.compassAnimation.addEventListener("ready", () => {
+      //   this.compassAnimation.seek(`${this.compassPosition}%`);
+      //   this.compassAnimation.pause();
+      // })
       this.setSunPosition();
       this.setCompassPosition();
+    }
+  }
 
-      console.log(this.forecast)
-    })
+  ngOnInit() {
+
+    // this.apiService.getSummary().subscribe((data: Summary[]) => {
+    //   let summary = new Summary(data[0])
+    //   this.forecast = summary.forecast;
+
+
+    //   this.resetRange();
+    //   this.setBarWidths();
+    //   this.setSunPosition();
+    //   this.setCompassPosition();
+
+    //   console.log(this.forecast)
+    // })
 
     this.sunAnimation = document.getElementById("sunanimation");
     this.compassAnimation = document.getElementById("compassanimation");
 
-    // this.sunAnimation.addEventListener("ready", () => {
-    //   // this.sunAnimation.seek(`${this.sunPosition}%`);
-    //   // this.sunAnimation.pause()
-    // });
-    // this.compassAnimation.addEventListener("ready", () => {
-    //   // this.compassAnimation.seek(`${this.compassPosition}%`);
-    //   // this.compassAnimation.pause();
-    // })
+    this.sunAnimation.addEventListener("ready", () => {
+      // this.sunAnimation.seek(`${this.sunPosition}%`);
+      // this.sunAnimation.pause()
+            this.setSunPosition();
+    });
+    this.compassAnimation.addEventListener("ready", () => {
+      this.compassAnimation.seek(`${this.compassPosition}%`);
+      this.compassAnimation.pause();
+
+      this.setCompassPosition();
+    })
 
   }
 
@@ -81,6 +114,9 @@ export class ForcastComponent implements OnInit{
     } else if(this.conditionType === "wind") {
       this.currentType = this.forecast.wind;
     }
+    console.log("inside reset range")
+    console.log(this.currentType)
+    console.log(this.forecast)
     if(this.timeRange === "hour") {
       this.forecastIntervalData = this.currentType.hour;
     } else {
@@ -121,13 +157,26 @@ export class ForcastComponent implements OnInit{
     let pop: number = 0;
     let humidity: number = 0;
     let wind: number = 0;
+    console.log("inside bar widths")
+    console.log(this.forecast)
+    // console.log(this.summary)
 
-    for(let [_, value] of this.forecast.temperature.hour) {
+    this.forecast.temperature.hour.forEach((value, index) => {
+      this.forecast.temperature.hour.set(index, this.kToF(value));
+    });
+    this.forecast.temperature.day.forEach((value, index) => {
+      this.forecast.temperature.day.set(index, this.kToF(value));
+    });
+
+
+    for(let [i, value] of this.forecast.temperature.hour) {
+      // this.forecast.temperature.hour.set(i, this.kToF(value));
       if(value > temp) {
         temp = value;
       }
     }
-    for(let [_, value] of this.forecast.temperature.day) {
+    for(let [i, value] of this.forecast.temperature.day) {
+      // this.forecast.temperature.day.set(i, this.kToF(value));
       if(value > temp) {
         temp = value;
       }
@@ -211,6 +260,7 @@ export class ForcastComponent implements OnInit{
   setCompassPosition() {
     let windDirection = this.forecast.wind_deg;
     let compassPosition = (windDirection / 360) * 100;
+    this.wind_speed = this.forecast.wind_speed;
 
     this.compassPosition = compassPosition;
     console.log("compass position: " + compassPosition)
@@ -221,6 +271,7 @@ export class ForcastComponent implements OnInit{
 
   getWindDirection(): string {
     let windDirection = this.forecast.wind_deg;
+    // let windDirection = 0;
 
     if(windDirection >348.75 || windDirection <= 11.25) {
       // N

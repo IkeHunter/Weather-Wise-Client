@@ -17,8 +17,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.apiSummary.getSummary().subscribe((data: any) => {
-      this.miniWidgets = data[0].widgets;
-      this.summary = data[0];
+      // this.miniWidgets = data[0].widgets;
+      // this.summary = data[0];
+      this.summary = new Summary(data[0]);
+      this.miniWidgets = this.summary.widgets;
 
       this.miniWidgets = this.miniWidgets.sort((a, b) => 0.5 - Math.random());
       console.log("mini widgets: ");

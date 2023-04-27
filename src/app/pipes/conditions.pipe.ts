@@ -101,14 +101,15 @@ export class ConditionMapPipe implements PipeTransform {
    */
   transform(originalCondition: Condition): Map<String, String> {
     var conditions = new Map<String, String>();
-    originalCondition.average_temp = Math.round((originalCondition.average_temp - 273.15) * 9/5 + 32);
-    originalCondition.feels_like = Math.round((originalCondition.feels_like - 273.15) * 9/5 + 32);
+    let average_temp = Math.round((originalCondition.average_temp - 273.15) * 9/5 + 32);
+    let feels_like = Math.round((originalCondition.feels_like - 273.15) * 9/5 + 32);
 
-    conditions.set('Average Temp', (originalCondition.average_temp || 0).toString() + 'º');
-    conditions.set('Feels Like', (originalCondition.feels_like || 0).toString() + 'º');
+    conditions.set('Average Temp', (average_temp || 0).toString() + 'º');
+    conditions.set('Feels Like', (feels_like || 0).toString() + 'º');
     conditions.set('Pressure', (originalCondition.pressure || 0).toString());
     conditions.set('Humidity', (originalCondition.humidity || 0).toString() + '%');
-    conditions.set('Chance of Rain', (originalCondition.pop || 0).toString() + '%');
+    // conditions.set('Chance of Rain', (originalCondition.pop || 0).toString() + '%');
+    conditions.set('Wind Speed', (originalCondition.wind_speed || 0).toString() + 'mph');
     conditions.set('Rain Level', (originalCondition.rain_level || 0).toString() + '"');
 
     return conditions;

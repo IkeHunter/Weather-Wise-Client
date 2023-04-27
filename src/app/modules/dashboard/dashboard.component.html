@@ -1,13 +1,16 @@
 <div class="container">
   <section class="widget-container">
-    <app-location class="widget widget-9-1"></app-location>
-    <app-current-conditions class="widget widget--2col widget-3-1"></app-current-conditions>
-    <app-last-year class="widget widget--2col widget-3-1"></app-last-year>
-    <app-forcast class="widget widget-3-4"></app-forcast>
-    <app-radar class="widget widget-6-2"></app-radar>
-    <ng-container *ngFor="let widget of miniWidgets; let i = index;">
-      <app-dynamic-widget class="widget widget-1-1" *ngIf="i < 5" [widget]="widget"></app-dynamic-widget>
+    <ng-container *ngIf="summary">
+      <app-location class="widget widget-9-1"></app-location>
+      <app-current-conditions class="widget widget--2col widget-3-1" [summary]="summary"></app-current-conditions>
+      <app-last-year class="widget widget--2col widget-3-1" [summary]="summary"></app-last-year>
+      <app-forcast class="widget widget-3-4" [summary]="summary"></app-forcast>
+      <app-radar class="widget widget-6-2"></app-radar>
+      <ng-container *ngFor="let widget of miniWidgets; let i = index;">
+        <app-dynamic-widget class="widget widget-1-1" *ngIf="i < 5" [widget]="widget"></app-dynamic-widget>
+      </ng-container>
     </ng-container>
+
   </section>
 </div>
 

@@ -10,10 +10,7 @@ import { SearchComponent } from './modules/search/search.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { RadarComponent } from './modules/dashboard/radar/radar.component';
-import { AverageConditionsComponent } from './modules/dashboard/average-conditions/average-conditions.component';
 import { LastYearComponent } from './modules/dashboard/last-year/last-year.component';
-import { BeachLastComponent } from './modules/dashboard/beach-last/beach-last.component';
-import { BeachClosestComponent } from './modules/dashboard/beach-closest/beach-closest.component';
 import { ForcastComponent } from './modules/dashboard/forcast/forcast.component';
 import { CurrentConditionsComponent } from './modules/dashboard/current-conditions/current-conditions.component';
 import { LocationComponent } from './modules/dashboard/location/location.component';
@@ -31,6 +28,7 @@ import { ConditionValuePipe } from './pipes/conditions.pipe';
 import { ConditionMapPipe } from './pipes/conditions.pipe';
 import { ConditionRangePipe } from './pipes/conditions.pipe';
 import { WeatherIconPipe } from './pipes/conditions.pipe';
+import { KelvinToFahrenheit } from './pipes/conditions.pipe';
 import { TimePipe } from './pipes/time.pipe';
 import { ConditionsPipe } from './pipes/conditions.pipe';
 import { DynamicWidgetComponent } from './modules/dashboard/dynamic-widget/dynamic-widget.component';
@@ -45,10 +43,7 @@ import { WidgetTitlePipe } from './pipes/widgets.pipe';
         HeaderComponent,
         SidebarComponent,
         RadarComponent,
-        AverageConditionsComponent,
         LastYearComponent,
-        BeachLastComponent,
-        BeachClosestComponent,
         ForcastComponent,
         CurrentConditionsComponent,
         LocationComponent,
@@ -65,6 +60,7 @@ import { WidgetTitlePipe } from './pipes/widgets.pipe';
         ConditionValuePipe,
         ConditionMapPipe,
         ConditionRangePipe,
+        KelvinToFahrenheit,
         WeatherIconPipe,
         TimePipe,
         ConditionsPipe,

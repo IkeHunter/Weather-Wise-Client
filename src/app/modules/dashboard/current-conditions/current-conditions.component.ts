@@ -16,26 +16,38 @@ export class CurrentConditionsComponent implements OnInit {
   getCondition = new ConditionMapPipe().transform;
 
   conditions = new Map<String, String>();
-  conditions2 = new Map<String, String>();
+  // conditions2 = new Map<String, String>();
 
   averageTemp: number = 0;
   chanceOfRain: number = 0;
   humidity: number = 0;
+  date: number = 0;
 
   constructor(private apiService: ApiSummary) { }
 
-  ngOnInit() {
-    this.apiService.getSummary().subscribe((data: Summary[]) => {
-      this.summary = data[0];
-      console.log("summary: ")
-      console.log(this.summary)
-
+  ngOnChanges() {
+    if(this.summary != undefined) {
       this.averageTemp = this.summary.current_conditions.average_temp;
       this.chanceOfRain = this.summary.current_conditions.pop;
       this.humidity = this.summary.current_conditions.humidity;
+      this.date = this.summary.current_conditions.date;
 
       this.conditions = this.getCondition(this.summary.current_conditions);
-    })
+    }
+  }
+
+  ngOnInit() {
+    // this.apiService.getSummary().subscribe((data: Summary[]) => {
+    //   this.summary = data[0];
+    //   console.log("summary: ")
+    //   console.log(this.summary)
+
+    //   this.averageTemp = this.summary.current_conditions.average_temp;
+    //   this.chanceOfRain = this.summary.current_conditions.pop;
+    //   this.humidity = this.summary.current_conditions.humidity;
+
+    //   this.conditions = this.getCondition(this.summary.current_conditions);
+    // })
   }
 
 }

@@ -25,20 +25,22 @@ export class DynamicWidgetComponent {
   }
 
   ngOnInit() {
+    this.conditions = this.getConditions(this.widget);
     // console.log("Component widget: ")
     // console.log(this.widget);
-    this.apiService.getSummary().subscribe((data: Summary[]) => {
-      // let widgetData = data[0].widgets[0];
-      // this.date = data[0].widgets[0].date;
-      // this.widgetData = this.widgetService.getWidgetData(data[0].widgets, this.widget);
-      // this.summary = data[0];
+    // this.apiService.getSummary().subscribe((data: Summary[]) => {
+    //   // let widgetData = data[0].widgets[0];
+    //   // this.date = data[0].widgets[0].date;
+    //   // this.widgetData = this.widgetService.getWidgetData(data[0].widgets, this.widget);
+    //   // this.summary = data[0];
 
-      // console.log("widget data: ");
-      // console.log(widgetData);
-      // this.date = widgetData.date;
-      // this.widgetData = data[0]
-      this.conditions = this.getConditions(this.widget);
+    //   // console.log("widget data: ");
+    //   // console.log(widgetData);
+    //   // this.date = widgetData.date;
+    //   // this.widgetData = data[0]
 
-    })
+      // this.conditions = this.getConditions(this.widget);
+
+    // })
   }
 }

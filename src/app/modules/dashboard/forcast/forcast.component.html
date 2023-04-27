@@ -3,15 +3,15 @@
   <div class="widget__summary__block">
     <app-lottie-sun class="lottie"></app-lottie-sun>
     <ng-container>
-      <span class="small-label-text lottie-data" *ngIf="showSunRise">Sunrise: {{ forecast.sunrise | toTime }}</span>
-      <span class="small-label-text lottie-data" *ngIf="!showSunRise">Sunset: {{ forecast.sunset | toTime }}</span>
+      <span class="small-label-text lottie-data" *ngIf="showSunRise">Sunrise: {{ sunrise | toTime }}</span>
+      <span class="small-label-text lottie-data" *ngIf="!showSunRise">Sunset: {{ sunset | toTime }}</span>
     </ng-container>
 
   </div>
   <div class="widget__summary__block">
     <span class="heading-3" id="wind-direction">{{ getWindDirection() }}</span>
     <app-lottie-compass class="lottie"></app-lottie-compass>
-    <span class="small-label-text lottie-data">Wind Speed: {{ forecast.wind_speed }} mph</span>
+    <span class="small-label-text lottie-data">Wind Speed: {{ wind_speed }} mph</span>
   </div>
 </div>
 
@@ -30,12 +30,12 @@
       <th>Temperature</th>
     </tr>
 
-    <ng-container *ngFor="let forecast of forecastIntervalData | keyvalue; let i = index;">
+    <ng-container *ngFor="let iter of forecastIntervalData | keyvalue; let i = index;">
       <tr *ngIf="i < 11">
-        <td *ngIf="timeRange == 'hour'">{{ forecast.key | toHour }}</td>
-        <td *ngIf="timeRange == 'day'">{{ forecast.key | toDay }}</td>
-        <td><span [ngStyle]="{'width': convertWidth(forecast.value) + '%'}">&nbsp;</span></td>
-        <td>{{ forecast.value }}{{ conditionType | conditionSymbol}}</td>
+        <td *ngIf="timeRange == 'hour'">{{ iter.key | toHour }}</td>
+        <td *ngIf="timeRange == 'day'">{{ iter.key | toDay }}</td>
+        <td><span [ngStyle]="{'width': convertWidth(iter.value) + '%'}">&nbsp;</span></td>
+        <td>{{ iter.value }}{{ conditionType | conditionSymbol}}</td>
       </tr>
     </ng-container>
   </table>

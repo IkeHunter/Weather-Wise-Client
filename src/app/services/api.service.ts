@@ -60,28 +60,35 @@ export class ApiSummary {
   constructor(private http: HttpClient) { }
 
   getSummary(): Observable<Summary[]> {
+    let initUrl = 'http://localhost:8000/weather/initialize?';
+    let cords = {lat: 29.6330969, lon: -82.3570501}
+    let url = initUrl + 'lat=' + cords.lat + '&long=' + cords.lon;
+    return this.http.get<JSON>(url).pipe(() => {
+      return this.http.get<Summary[]>(this.baseUrl);
+    });
 
     console.log("data")
       console.log(this.http.get<Summary[]>(this.baseUrl))
-    return this.http.get<Summary[]>(this.baseUrl).pipe(
-      map((data: any) => {
-        for(let i = 0; i < data.length; i++) {
-          // data[i] = new Summary(data[i]);
-          console.log("data[i]")
-          console.log(data[i])
-          console.log(data[i].location)
-          console.log(locationEnv.postal_code)
-          if(data[i].location === 32608) {
-            console.log("day found")
-            let day = new Summary(data[i]);
-            return day;
-          }
-        }
-        data[0] = new Summary(data[0]);
-        return data[0]
-      })
+    // return this.http.get<Summary[]>(this.baseUrl).pipe(
+    //   map((data: any) => {
+    //     for(let i = 0; i < data.length; i++) {
+    //       // data[i] = new Summary(data[i]);
+    //       console.log("data[i]")
+    //       console.log(data[i])
+    //       console.log(data[i].location)
+    //       console.log(locationEnv.postal_code)
+    //       if(data[i].location === 32608) {
+    //         console.log("day found")
+    //         let day = new Summary(data[i]);
+    //         return day;
+    //       }
+    //     }
+    //     data[0] = new Summary(data[0]);
+    //     return data[0]
+    //   })
 
-    )
+    // )
+
     // return this.http.get<Summary[]>(this.baseUrl);
 
 
