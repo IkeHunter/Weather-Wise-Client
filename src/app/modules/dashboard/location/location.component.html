@@ -9,8 +9,13 @@
   <div class="box__col">
     <h3>Change Location</h3>
     <div class="box__col__data">
-      <form>
-        <input type="text" placeholder="Enter Zip Code">
+      <form (ngSubmit)="onSubmit()" #f="ngForm" [formGroup]="locationForm">
+        <input
+          type="text"
+          name="postalCode"
+          pattern="\b\d{5}\b"
+          formControlName="postalCode"
+          placeholder="Enter Zip Code">
         <button class="btn" type="submit">Reset Location</button>
       </form>
     </div>
