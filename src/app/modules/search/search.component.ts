@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Condition } from 'src/app/models/summary.model';
 
@@ -10,6 +10,7 @@ import { Condition } from 'src/app/models/summary.model';
 export class SearchComponent {
   topResults: Condition[] = [];
   allResults: Condition[] = [];
+  @Output() pageName = "Search"
 
   constructor() { }
 
@@ -23,11 +24,6 @@ export class SearchComponent {
       let temp = JSON.parse(JSON.stringify(days[i]));
       this.topResults.push(temp);
     }
-    // for(let day of days) {
-    //   if(day.widget_title == "top_result") {
-    //     this.topResults.push(day);
-    //   }
-    // }
   }
 
 }

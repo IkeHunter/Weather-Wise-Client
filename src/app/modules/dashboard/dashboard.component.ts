@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Condition } from 'src/app/models/summary.model';
+import { Component, OnInit, Output } from '@angular/core';
+import { Condition, Summary } from 'src/app/models/summary.model';
 import { ApiSummary } from 'src/app/services/api.service';
 import { locationEnv } from 'src/environments/environments';
 
@@ -9,14 +9,16 @@ import { locationEnv } from 'src/environments/environments';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  @Output() pageName = "Dashboard"
   miniWidgets: Condition[];
+  summary: Summary;
 
   constructor(private apiSummary: ApiSummary) {}
 
   ngOnInit() {
     this.apiSummary.getSummary().subscribe((data: any) => {
       this.miniWidgets = data[0].widgets;
-
+      this.summary = data[0];
 
       this.miniWidgets = this.miniWidgets.sort((a, b) => 0.5 - Math.random());
       console.log("mini widgets: ");

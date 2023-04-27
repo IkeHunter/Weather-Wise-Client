@@ -67,12 +67,18 @@ export class ApiSummary {
       map((data: any) => {
         for(let i = 0; i < data.length; i++) {
           // data[i] = new Summary(data[i]);
-          if(data[i].location == locationEnv.postal_code) {
-            return data[i];
+          console.log("data[i]")
+          console.log(data[i])
+          console.log(data[i].location)
+          console.log(locationEnv.postal_code)
+          if(data[i].location === 32608) {
+            console.log("day found")
+            let day = new Summary(data[i]);
+            return day;
           }
         }
-
-        return data
+        data[0] = new Summary(data[0]);
+        return data[0]
       })
 
     )

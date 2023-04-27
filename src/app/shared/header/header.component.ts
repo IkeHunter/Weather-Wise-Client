@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { interval } from 'rxjs';
 
 
@@ -11,6 +11,7 @@ import { interval } from 'rxjs';
 
 
 export class HeaderComponent {
+  @Input() pageName: String;
 
   currentTime: any = new Date().toLocaleTimeString();
 

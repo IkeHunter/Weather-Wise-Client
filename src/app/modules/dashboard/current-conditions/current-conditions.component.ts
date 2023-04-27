@@ -10,7 +10,8 @@ import { ApiSummary } from 'src/app/services/api.service';
   styleUrls: ['./current-conditions.component.scss']
 })
 export class CurrentConditionsComponent implements OnInit {
-  summary: Summary;
+  @Input() summary: Summary;
+  // summary: Summary;
   condition = new ConditionValuePipe().transform;
   getCondition = new ConditionMapPipe().transform;
 
@@ -26,6 +27,8 @@ export class CurrentConditionsComponent implements OnInit {
   ngOnInit() {
     this.apiService.getSummary().subscribe((data: Summary[]) => {
       this.summary = data[0];
+      console.log("summary: ")
+      console.log(this.summary)
 
       this.averageTemp = this.summary.current_conditions.average_temp;
       this.chanceOfRain = this.summary.current_conditions.pop;

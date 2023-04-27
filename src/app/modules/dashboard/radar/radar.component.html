@@ -4,6 +4,27 @@
   <h3>Radar</h3>
   <span class="small-label-text">Gainesville, FL</span>
 </div>
+<!-- <div #map style="width:100%;height:400px"></div> -->
+<div id="map"></div>
+<script>
+  function initMap() {
+    let map = new google.maps.Map(document.getElementById("map"), {
+        center: {
+            lat: 29.6330969,
+            lng: -82.3570501
+        },
+        zoom: 6,
+    });
+    var rainMapOverlay = new google.maps.ImageMapType({
+        getTileUrl: function(coord, zoom) {
+            // return 'https://www.meteosource.com/api/v1/flexi/map?key=' + METEOSOURCE_API_KEY + '&tile_x=' + coord.x + '&tile_y=' + coord.y + '&tile_zoom=' + zoom + '&datetime=+1hour&variable=temperature'
+            return 'http://maps.openweathermap.org/maps/2.0/weather/TA2/' + zoom + '/' + coord.x + '/' + coord.y + '?date=1527811200&opacity=0.9&fill_bound=true&appid=79f1b8078781a18fc8918638e6c5ebc3'
+        },
+        tileSize: new google.maps.Size(256, 256)
+    });
+    map.overlayMapTypes.insertAt(0, rainMapOverlay)
+  }
+  window.initMap = initMap;
 
-
+</script>
 

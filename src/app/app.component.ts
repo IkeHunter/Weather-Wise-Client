@@ -8,8 +8,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Project_3_Frontend';
+  activePage = "Welcome!"
   // private apiInit: ApiInitialize
 
   constructor(private route: ActivatedRoute) {
@@ -19,12 +20,8 @@ export class AppComponent implements OnInit {
     })
   }
 
-  ngOnInit() {}
-  // ngOnInit() {
-  //   this.apiInit.initialize().subscribe((data: any) => {
-  //     console.log(data)
-  //     // let code = data['postal_code']
-  //     locationEnv.postal_code = +data['postal_code']
-  //   })
-  // }
+  onActivate(event: any) {
+    console.log(event.pageName)
+    this.activePage = event.pageName;
+  }
 }

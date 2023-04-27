@@ -15,6 +15,8 @@ export class Summary extends Page {
     this.last_year = args.last_year;
     this.forecast = args.forecast;
     this.widgets = args.widgets;
+    console.log("inside summary constructor")
+    console.log(this)
 
     this.forecast = new Forecast(args.forecast);
   }
