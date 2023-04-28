@@ -21,6 +21,17 @@ export class SearchCriteria {
   }
 }
 
+export interface LocationChangeResponse {
+  success: boolean;
+  latitude: number;
+  longitude: number;
+}
+
+export interface Coords {
+  lat: number;
+  lon: number;
+  postal: number;
+}
 
 
 

@@ -24,7 +24,7 @@ export class LastYearComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if(this.summary != undefined) {
       this.averageTemp = this.summary.last_year.average_temp;
-      this.rainLevel = this.summary.last_year.rain_level;
+      this.rainLevel = this.summary.last_year.rain_levels;
       this.humidity = this.summary.last_year.humidity;
       this.date = this.summary.last_year.date;
 

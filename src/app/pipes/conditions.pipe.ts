@@ -100,7 +100,9 @@ export class ConditionMapPipe implements PipeTransform {
    * Ex: Average Temp: 10º
    */
   transform(originalCondition: Condition): Map<String, String> {
+    originalCondition = JSON.parse(JSON.stringify(originalCondition));
     var conditions = new Map<String, String>();
+    console.log(originalCondition)
     let average_temp = Math.round((originalCondition.average_temp - 273.15) * 9/5 + 32);
     let feels_like = Math.round((originalCondition.feels_like - 273.15) * 9/5 + 32);
 
@@ -110,7 +112,7 @@ export class ConditionMapPipe implements PipeTransform {
     conditions.set('Humidity', (originalCondition.humidity || 0).toString() + '%');
     // conditions.set('Chance of Rain', (originalCondition.pop || 0).toString() + '%');
     conditions.set('Wind Speed', (originalCondition.wind_speed || 0).toString() + 'mph');
-    conditions.set('Rain Level', (originalCondition.rain_level || 0).toString() + '"');
+    conditions.set('Rain Level', (originalCondition.rain_levels || 0).toString() + '"');
 
     return conditions;
   }

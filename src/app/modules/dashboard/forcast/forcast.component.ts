@@ -143,6 +143,10 @@ export class ForcastComponent implements OnInit, OnChanges{
       this.forecast.temperature.day.set(index, this.kToF(value));
     });
 
+    this.forecast.precipitation.hour.forEach((value, index) => {
+      this.forecast.precipitation.hour.set(index, value * 100);
+    });
+
 
     for(let [i, value] of this.forecast.temperature.hour) {
       if(value > temp) {

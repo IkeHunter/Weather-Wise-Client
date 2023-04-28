@@ -20,6 +20,8 @@ export class Summary extends Page {
     // this.widgets = args.widgets;
 
     this.widgets = [];
+    console.log("args.widgets: ")
+    console.log(args.widgets)
     for(let widget of args.widgets) {
       this.widgets.push(new Condition(widget));
     }
@@ -37,21 +39,21 @@ export class Condition {
   humidity: number;
   wind_speed: number;
   pop: number;
-  rain_level: number;
+  rain_levels: number;
   weather_name: string;
   icon: string;
   date: number;
   // wind_speed: number;
 
-  constructor(args: {widget_title: string, average_temp: number, feels_like: number, pressure: number, humidity: number, wind_speed: number, pop: number, rain_level: number, weather_name: string, icon: string, date: number}) {
+  constructor(args: {widget_title: string, average_temp: number, feels_like: number, pressure: number, humidity: number, wind_speed: number, pop: number, rain_levels: number, weather_name: string, icon: string, date: number}) {
     this.widget_title = args.widget_title || "";
     this.average_temp = args.average_temp || 0;
     this.feels_like = args.feels_like || 0;
     this.pressure = args.pressure || 0;
     this.humidity = args.humidity || 0;
     this.wind_speed = args.wind_speed || 0;
-    this.pop = args.pop || 0;
-    this.rain_level = args.rain_level || 0;
+    this.pop = args.pop * 100 || 0;
+    this.rain_levels = args.rain_levels || 0;
     this.weather_name = args.weather_name || "";
     this.icon = args.icon || "";
     this.date = args.date || 0;
