@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBase: 'https://api.weatherwise.cloud'
+  apiBase: 'http://api.weatherwise.cloud'
 };
