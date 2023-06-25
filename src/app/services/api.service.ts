@@ -6,7 +6,7 @@ import { Package } from '../models/package.model';
 import { Condition, Summary } from '../models/summary.model';
 import { Coords, LocationChangeResponse, SearchCriteria } from '../models/weather.model';
 import { locationEnv } from 'src/environments/environments';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 // interface Coords {
 //   lat: number;
